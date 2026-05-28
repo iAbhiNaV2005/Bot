@@ -1,0 +1,9 @@
+ccxt>=4.0
+pandas>=2.1
+mplfinance>=0.12.10b0
+python-telegram-bot>=20.0
+APScheduler>=3.10,<4.0
+python-dotenv>=1.0
+matplotlib>=3.8
+aiohttp>=3.9
+flask>=3.0

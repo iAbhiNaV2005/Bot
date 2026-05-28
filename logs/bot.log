@@ -1,0 +1,871 @@
+[2026-05-29 01:05:08] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:05:08] [INFO] [__main__] ============================================================
+[2026-05-29 01:05:08] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-29 01:05:08] [INFO] [__main__] ============================================================
+[2026-05-29 01:05:08] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-29 01:05:08] [INFO] [__main__]   Top coins: 50
+[2026-05-29 01:05:08] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-29 01:05:08] [INFO] [__main__]   Min score: 8/18
+[2026-05-29 01:05:08] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-29 01:05:08] [INFO] [__main__]   Dry run: False
+[2026-05-29 01:05:08] [INFO] [__main__] ============================================================
+[2026-05-29 01:05:08] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:05:08] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-29 01:05:08] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:05:08] [INFO] [data.coin_selector] No saved coin list found on disk.
+[2026-05-29 01:05:08] [INFO] [data.coin_selector] Refreshing top coin list by 24h volume...
+[2026-05-29 01:05:08] [ERROR] [__main__] Startup failed: binance GET https://api.binance.com/sapi/v1/capital/config/getall?timestamp=1779996908294&recvWindow=10000&signature=1d42876918dbee1639fe91b16671fc8c151761ce2ad45efa9c81d2d7a4e8d14c
+[2026-05-29 01:05:09] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-29 01:05:35] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:05:35] [INFO] [__main__] ============================================================
+[2026-05-29 01:05:35] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-29 01:05:35] [INFO] [__main__] ============================================================
+[2026-05-29 01:05:35] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-29 01:05:35] [INFO] [__main__]   Top coins: 50
+[2026-05-29 01:05:35] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-29 01:05:35] [INFO] [__main__]   Min score: 8/18
+[2026-05-29 01:05:35] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-29 01:05:35] [INFO] [__main__]   Dry run: False
+[2026-05-29 01:05:35] [INFO] [__main__] ============================================================
+[2026-05-29 01:05:35] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:05:35] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-29 01:05:35] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:05:35] [INFO] [data.coin_selector] No saved coin list found on disk.
+[2026-05-29 01:05:35] [INFO] [data.coin_selector] Refreshing top coin list by 24h volume...
+[2026-05-29 01:05:35] [ERROR] [__main__] Startup failed: binance GET https://api.binance.com/sapi/v1/capital/config/getall?timestamp=1779996935633&recvWindow=10000&signature=849c76eafa7b77fa6ff4433f3e0d33c4b9f10ae44016c204ca7d7a824ca9fcb1
+[2026-05-29 01:05:36] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-29 01:11:47] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:11:47] [INFO] [__main__] ============================================================
+[2026-05-29 01:11:47] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-29 01:11:47] [INFO] [__main__] ============================================================
+[2026-05-29 01:11:47] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-29 01:11:47] [INFO] [__main__]   Top coins: 50
+[2026-05-29 01:11:47] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-29 01:11:47] [INFO] [__main__]   Min score: 8/18
+[2026-05-29 01:11:47] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-29 01:11:47] [INFO] [__main__]   Dry run: False
+[2026-05-29 01:11:47] [INFO] [__main__] ============================================================
+[2026-05-29 01:11:47] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:11:47] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-29 01:11:47] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:11:47] [INFO] [data.coin_selector] No saved coin list found on disk.
+[2026-05-29 01:11:47] [INFO] [data.coin_selector] Refreshing top coin list by 24h volume...
+[2026-05-29 01:11:47] [ERROR] [__main__] Startup failed: binance GET https://api.binance.com/api/v3/exchangeInfo
+[2026-05-29 01:11:48] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-29 01:11:48] [INFO] [scheduler.runner] Shutting down...
+[2026-05-29 01:11:48] [INFO] [scheduler.runner] Shutdown complete
+[2026-05-29 01:14:23] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:14:23] [INFO] [__main__] ============================================================
+[2026-05-29 01:14:23] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-29 01:14:23] [INFO] [__main__] ============================================================
+[2026-05-29 01:14:23] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-29 01:14:23] [INFO] [__main__]   Top coins: 50
+[2026-05-29 01:14:23] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-29 01:14:23] [INFO] [__main__]   Min score: 8/18
+[2026-05-29 01:14:23] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-29 01:14:23] [INFO] [__main__]   Dry run: False
+[2026-05-29 01:14:23] [INFO] [__main__] ============================================================
+[2026-05-29 01:14:23] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:14:23] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-29 01:14:23] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:14:23] [INFO] [data.coin_selector] No saved coin list found on disk.
+[2026-05-29 01:14:23] [INFO] [data.coin_selector] Refreshing top coin list by 24h volume...
+[2026-05-29 01:14:23] [WARNING] [utils.error_handler] fetch_exchange_info attempt 1/3 failed: binance GET https://fapi.binance.com/fapi/v1/exchangeInfo. Retrying in 2.0s...
+[2026-05-29 01:14:25] [WARNING] [utils.error_handler] fetch_exchange_info attempt 2/3 failed: binance GET https://fapi.binance.com/fapi/v1/exchangeInfo. Retrying in 2.0s...
+[2026-05-29 01:14:28] [ERROR] [utils.error_handler] fetch_exchange_info failed after 3 attempts: binance GET https://fapi.binance.com/fapi/v1/exchangeInfo
+[2026-05-29 01:14:28] [ERROR] [__main__] Startup failed: binance GET https://fapi.binance.com/fapi/v1/exchangeInfo
+[2026-05-29 01:14:29] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-29 01:14:29] [INFO] [scheduler.runner] Shutting down...
+[2026-05-29 01:14:29] [INFO] [scheduler.runner] Shutdown complete
+[2026-05-29 01:16:58] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:16:58] [INFO] [__main__] ============================================================
+[2026-05-29 01:16:58] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-29 01:16:58] [INFO] [__main__] ============================================================
+[2026-05-29 01:16:58] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-29 01:16:58] [INFO] [__main__]   Top coins: 50
+[2026-05-29 01:16:58] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-29 01:16:58] [INFO] [__main__]   Min score: 8/18
+[2026-05-29 01:16:58] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-29 01:16:58] [INFO] [__main__]   Dry run: False
+[2026-05-29 01:16:58] [INFO] [__main__] ============================================================
+[2026-05-29 01:16:58] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:16:58] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-29 01:16:58] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:16:58] [INFO] [data.coin_selector] No saved coin list found on disk.
+[2026-05-29 01:16:58] [INFO] [data.coin_selector] Refreshing top coin list by 24h volume...
+[2026-05-29 01:16:58] [INFO] [data.fetcher] Found 528 active USDT perpetual futures
+[2026-05-29 01:16:58] [INFO] [data.coin_selector] Selected 50 coins. Top 5: ['BTC/USDT:USDT', 'ETH/USDT:USDT', 'SOL/USDT:USDT', 'HYPE/USDT:USDT', 'ZEC/USDT:USDT']
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ICP/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added NEAR/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ENA/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ETH/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added XLM/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added BEAT/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ONDO/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added BNB/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added TON/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added LTC/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added VVV/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added LAB/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added GUA/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added BSB/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added TRUMP/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added TAO/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added XRP/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added DOGE/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ZEC/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added FET/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ADA/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added 1000PEPE/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added INJ/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added BCH/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added BTC/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added WLD/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added UB/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added PLAY/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added UNI/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added SWARMS/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ALLO/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added PRL/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added LINK/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added FIL/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added AAVE/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added ESPORTS/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added GENIUS/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added HBAR/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added SOL/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added HYPE/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added H/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added PAXG/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added TRX/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added AVAX/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added BILL/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added SUI/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added PUMP/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added SKYAI/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added SEI/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [data.storage] Added DOT/USDT:USDT to data store
+[2026-05-29 01:16:58] [INFO] [scheduler.runner] Tracking 50 coins
+[2026-05-29 01:16:58] [INFO] [scheduler.runner] Fetching 4h candles for 50 coins...
+[2026-05-29 01:17:21] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-29 01:17:21] [INFO] [scheduler.runner] Fetching 1h candles for 50 coins...
+[2026-05-29 01:17:41] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-29 01:17:41] [INFO] [scheduler.runner] Fetching 15m candles for 50 coins...
+[2026-05-29 01:18:03] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 01:18:03] [INFO] [scheduler.runner] Fetching 5m candles for 50 coins...
+[2026-05-29 01:18:23] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:18:23] [INFO] [scheduler.runner] Initial OHLCV fetch complete
+[2026-05-29 01:18:24] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-29 01:18:24] [INFO] [scheduler.runner] Startup complete. Entering main loop.
+[2026-05-29 01:18:24] [INFO] [__main__] Scheduler started. Bot is now running.
+[2026-05-29 01:19:24] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 01:19:45] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:20:08] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 01:20:30] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-29 01:20:50] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-29 01:21:06] [WARNING] [data.fetcher] Failed to fetch OI history for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:06] [WARNING] [data.fetcher] Failed to fetch OI history for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:06] [WARNING] [data.fetcher] Failed to fetch OI history for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:07] [WARNING] [data.fetcher] Failed to fetch OI history for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:08] [WARNING] [data.fetcher] Failed to fetch OI history for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:09] [WARNING] [data.fetcher] Failed to fetch OI history for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:10] [WARNING] [data.fetcher] Failed to fetch OI history for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:11] [WARNING] [data.fetcher] Failed to fetch OI history for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch OI history for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:13] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:14] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:15] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:15] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:15] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:15] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:21:15] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Next check in 60s.
+[2026-05-29 01:21:24] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 01:21:46] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:22:02] [WARNING] [data.fetcher] Failed to fetch OI history for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:02] [WARNING] [data.fetcher] Failed to fetch OI history for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:02] [WARNING] [data.fetcher] Failed to fetch OI history for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:02] [WARNING] [data.fetcher] Failed to fetch OI history for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:03] [WARNING] [data.fetcher] Failed to fetch OI history for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:04] [WARNING] [data.fetcher] Failed to fetch OI history for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:05] [WARNING] [data.fetcher] Failed to fetch OI history for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:06] [WARNING] [data.fetcher] Failed to fetch OI history for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:07] [WARNING] [data.fetcher] Failed to fetch OI history for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:22:11] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Next check in 60s.
+[2026-05-29 01:25:24] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 01:25:44] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:26:00] [WARNING] [data.fetcher] Failed to fetch OI history for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:00] [WARNING] [data.fetcher] Failed to fetch OI history for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:01] [WARNING] [data.fetcher] Failed to fetch OI history for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:02] [WARNING] [data.fetcher] Failed to fetch OI history for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:03] [WARNING] [data.fetcher] Failed to fetch OI history for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:04] [WARNING] [data.fetcher] Failed to fetch OI history for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:05] [WARNING] [data.fetcher] Failed to fetch OI history for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch OI history for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch OI history for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:26:09] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Next check in 60s.
+[2026-05-29 01:30:24] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 01:30:44] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:31:06] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 01:31:27] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-29 01:31:47] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-29 01:32:03] [WARNING] [data.fetcher] Failed to fetch OI history for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:03] [WARNING] [data.fetcher] Failed to fetch OI history for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:03] [WARNING] [data.fetcher] Failed to fetch OI history for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:03] [WARNING] [data.fetcher] Failed to fetch OI history for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:03] [WARNING] [data.fetcher] Failed to fetch OI history for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:04] [WARNING] [data.fetcher] Failed to fetch OI history for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:05] [WARNING] [data.fetcher] Failed to fetch OI history for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:06] [WARNING] [data.fetcher] Failed to fetch OI history for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:07] [WARNING] [data.fetcher] Failed to fetch OI history for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch OI history for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:32:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:10] [WARNING] [data.fetcher] Failed to fetch L/S ratio for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:11] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:12] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:32:12] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Next check in 60s.
+[2026-05-29 01:35:24] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 01:35:44] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:36:00] [WARNING] [data.fetcher] Failed to fetch OI history for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:01] [WARNING] [data.fetcher] Failed to fetch OI history for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:02] [WARNING] [data.fetcher] Failed to fetch OI history for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:03] [WARNING] [data.fetcher] Failed to fetch OI history for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:04] [WARNING] [data.fetcher] Failed to fetch OI history for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:05] [WARNING] [data.fetcher] Failed to fetch OI history for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch OI history for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch OI history for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch OI history for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:06] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:07] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:08] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:36:09] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Next check in 60s.
+[2026-05-29 01:36:49] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:36:49] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:39:13] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:39:13] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 01:39:13] [INFO] [__main__] ============================================================
+[2026-05-29 01:39:13] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-29 01:39:13] [INFO] [__main__] ============================================================
+[2026-05-29 01:39:13] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-29 01:39:13] [INFO] [__main__]   Top coins: 50
+[2026-05-29 01:39:13] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-29 01:39:13] [INFO] [__main__]   Min score: 8/18
+[2026-05-29 01:39:13] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-29 01:39:13] [INFO] [__main__]   Dry run: False
+[2026-05-29 01:39:13] [INFO] [__main__] ============================================================
+[2026-05-29 01:39:13] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:39:13] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-29 01:39:13] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 01:39:13] [INFO] [data.coin_selector] Loaded 50 coins from disk (last refresh: 1779997618.9014795)
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ZEC/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added PUMP/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added AVAX/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added INJ/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added LINK/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added BSB/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added HYPE/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added VVV/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added PLAY/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added SKYAI/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added WLD/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added PRL/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added BCH/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ESPORTS/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added 1000PEPE/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added FET/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added FIL/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added LAB/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added XLM/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added TRX/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added DOT/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added UNI/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added TAO/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ETH/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added BEAT/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added SUI/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added BTC/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added DOGE/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added GUA/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added BNB/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added TON/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added H/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added PAXG/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ENA/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added TRUMP/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added HBAR/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added LTC/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ONDO/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ICP/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added NEAR/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added AAVE/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added BILL/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added XRP/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ALLO/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added UB/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added SEI/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added ADA/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added GENIUS/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added SWARMS/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [data.storage] Added SOL/USDT:USDT to data store
+[2026-05-29 01:39:13] [INFO] [scheduler.runner] Tracking 50 coins
+[2026-05-29 01:39:13] [INFO] [scheduler.runner] Fetching 4h candles for 50 coins...
+[2026-05-29 01:39:36] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-29 01:39:36] [INFO] [scheduler.runner] Fetching 1h candles for 50 coins...
+[2026-05-29 01:39:58] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-29 01:39:58] [INFO] [scheduler.runner] Fetching 15m candles for 50 coins...
+[2026-05-29 01:40:22] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 01:40:22] [INFO] [scheduler.runner] Fetching 5m candles for 50 coins...
+[2026-05-29 01:40:45] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:40:45] [INFO] [scheduler.runner] Initial OHLCV fetch complete
+[2026-05-29 01:40:46] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-29 01:40:46] [INFO] [scheduler.runner] Startup complete. Entering main loop.
+[2026-05-29 01:40:46] [INFO] [__main__] Scheduler started. Bot is now running.
+[2026-05-29 01:41:46] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 01:42:08] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:42:31] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 01:42:54] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-29 01:43:17] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-29 01:43:33] [WARNING] [data.fetcher] Failed to fetch OI history for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:33] [WARNING] [data.fetcher] Failed to fetch OI history for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:33] [WARNING] [data.fetcher] Failed to fetch OI history for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:33] [WARNING] [data.fetcher] Failed to fetch OI history for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:33] [WARNING] [data.fetcher] Failed to fetch OI history for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:34] [WARNING] [data.fetcher] Failed to fetch OI history for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:35] [WARNING] [data.fetcher] Failed to fetch OI history for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:36] [WARNING] [data.fetcher] Failed to fetch OI history for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:37] [WARNING] [data.fetcher] Failed to fetch OI history for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch OI history for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetOpenInterestHist'
+[2026-05-29 01:43:38] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ETH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SOL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HYPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ZEC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XLM/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for XRP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for NEAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOGE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GUA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BNB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for WLD/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SUI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for 1000PEPE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ESPORTS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:39] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ADA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FIL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BCH/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BEAT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ONDO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LINK/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TAO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ALLO/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TON/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BSB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AVAX/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UNI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for UB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for GENIUS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ENA/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:40] [WARNING] [data.fetcher] Failed to fetch L/S ratio for BILL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for H/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PRL/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PAXG/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for HBAR/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for VVV/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for TRUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for AAVE/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SWARMS/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PLAY/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LAB/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for PUMP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for INJ/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for DOT/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SKYAI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for LTC/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:41] [WARNING] [data.fetcher] Failed to fetch L/S ratio for FET/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:42] [WARNING] [data.fetcher] Failed to fetch L/S ratio for SEI/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:42] [WARNING] [data.fetcher] Failed to fetch L/S ratio for ICP/USDT:USDT: 'binance' object has no attribute 'fapiPublicGetGlobalLongShortAccountRatio'
+[2026-05-29 01:43:42] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Next check in 60s.
+[2026-05-29 01:45:46] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 01:46:08] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 01:46:24] [INFO] [__main__] Received signal 2. Initiating shutdown...
