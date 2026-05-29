@@ -1,22 +1,30 @@
 """
-scheduler/runner.py — Main loop, timing, and orchestration.
+scheduler/runner.py — Main loop, timing, and orchestration (v2).
 
 This is the brain of the bot. It:
-1. Checks for 5m candle closes every 60 seconds
-2. Fetches data, runs indicators, runs SMC, checks signals
-3. Processes coins in parallel via ThreadPoolExecutor
-4. Manages periodic tasks (15m/1h/4h/24h refreshes)
-5. Tracks errors and sends alerts when thresholds are reached
+1. Checks BTC volatility blackout before any analysis
+2. Runs BTC structure analysis for correlation scoring
+3. Gets current trading session for session scoring
+4. Fetches data, runs indicators, runs SMC, checks signals
+5. Manages periodic tasks (15m/1h/4h/24h refreshes)
+6. Tracks signal outcomes and failure states
+7. Sends alerts when thresholds are reached
+
+v2: Added volatility blackout, BTC correlation, session scoring,
+    OB touch updates, failure state checks, outcome tracking.
 """
 
 import asyncio
 import traceback
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta, timezone
 from typing import Any, Optional
 
-from analysis.indicators import calculate_all_indicators
-from analysis.market_data import check_funding_rate_long, check_oi_increasing
-from analysis.smc import run_smc_analysis
+from analysis.indicators import calculate_all_indicators, calc_atr, calc_ema
+from analysis.market_data import check_oi_increasing
+from analysis.smc import (
+    Direction, detect_bos, detect_swing_points, run_smc_analysis,
+)
 from config import settings
 from data.coin_selector import coin_selector
 from data.fetcher import fetcher
@@ -29,6 +37,7 @@ from utils.error_handler import error_counter
 from utils.logger import get_logger
 from utils.time_utils import (
     get_last_closed_candle_open_time,
+    get_trading_session,
     is_new_candle_closed,
     utc_now,
 )
@@ -38,10 +47,11 @@ logger = get_logger(__name__)
 
 class SignalRunner:
     """
-    Main orchestration engine for the signal bot.
+    Main orchestration engine for the signal bot (v2).
 
     Manages the lifecycle of data fetching, analysis, and signal delivery
-    on a candle-close schedule.
+    on a candle-close schedule. Includes volatility blackout, BTC correlation,
+    session filtering, and outcome tracking.
     """
 
     def __init__(self) -> None:
@@ -52,8 +62,16 @@ class SignalRunner:
         self._last_1h_processed: int = 0
         self._last_4h_processed: int = 0
         self._last_daily_refresh: float = 0.0
+        self._last_failure_check: float = 0.0
+        self._last_outcome_check: float = 0.0
         self._executor = ThreadPoolExecutor(max_workers=4)
         self._signal_queue: list[tuple[Signal, Optional[Any]]] = []
+        # Detailed per-cycle analysis results for logging
+        self._cycle_results: list[dict[str, Any]] = []
+
+        # v2: Volatility blackout state
+        self._signals_paused: bool = False
+        self._signals_paused_until: Optional[datetime] = None
 
     async def startup(self) -> None:
         """
@@ -115,16 +133,125 @@ class SignalRunner:
 
         logger.info("Initial OHLCV fetch complete")
 
+    # ── BTC Volatility Blackout (v2) ──────────────────────────────────────
+
+    async def _check_btc_volatility_blackout(self) -> bool:
+        """
+        Check if BTC volatility warrants pausing all signals.
+
+        If BTC 1H ATR exceeds 2.5× its rolling average, pause for 60 minutes.
+
+        Returns:
+            True if signals should be paused (skip all analysis).
+        """
+        # Check if currently in blackout
+        if self._signals_paused:
+            if utc_now() < self._signals_paused_until:
+                logger.debug("Signals paused (volatility blackout)")
+                return True
+            else:
+                # Blackout expired
+                self._signals_paused = False
+                self._signals_paused_until = None
+                logger.info("✅ Volatility normalized — signals resumed")
+                try:
+                    await telegram.send_text("✅ Volatility normalized — signals resumed")
+                except Exception:
+                    pass
+                return False
+
+        # Check BTC ATR
+        btc_symbol = settings.BLACKOUT_CHECK_SYMBOL
+        df_btc_1h = data_store.get_ohlcv(btc_symbol, settings.STRUCTURE_TF)
+        if df_btc_1h is None or len(df_btc_1h) < 20:
+            return False
+
+        atr_series = calc_atr(df_btc_1h["high"], df_btc_1h["low"], df_btc_1h["close"])
+        if len(atr_series) < 14:
+            return False
+
+        current_atr = float(atr_series.iloc[-1])
+        # Average of last 14 ATR values
+        avg_atr = float(atr_series.iloc[-14:].mean())
+
+        if avg_atr > 0 and current_atr > settings.BLACKOUT_ATR_MULTIPLIER * avg_atr:
+            self._signals_paused = True
+            self._signals_paused_until = utc_now() + timedelta(
+                minutes=settings.BLACKOUT_DURATION_MINUTES
+            )
+            logger.warning(
+                f"⚠️ BTC volatility spike: ATR {current_atr:.2f} > "
+                f"{settings.BLACKOUT_ATR_MULTIPLIER}× avg {avg_atr:.2f}"
+            )
+            try:
+                await telegram.send_text(
+                    f"⚠️ Extreme volatility detected — all signals paused for "
+                    f"{settings.BLACKOUT_DURATION_MINUTES} minutes\n"
+                    f"BTC ATR: {current_atr:.2f} (avg: {avg_atr:.2f})"
+                )
+            except Exception:
+                pass
+            return True
+
+        return False
+
+    # ── BTC Correlation Analysis (v2) ────────────────────────────────────
+
+    def _analyze_btc_state(self) -> dict[str, Any]:
+        """
+        Analyze BTC structure for correlation scoring.
+
+        Returns:
+            Dict with 'btc_bullish', 'btc_bearish', 'is_btc_symbol' flags.
+        """
+        btc_symbol = settings.BTC_CORRELATION_SYMBOL
+        df_btc_1h = data_store.get_ohlcv(btc_symbol, settings.STRUCTURE_TF)
+
+        result = {"btc_bullish": False, "btc_bearish": False, "is_btc_symbol": False}
+
+        if df_btc_1h is None or len(df_btc_1h) < 50:
+            return result
+
+        # BOS on BTC 1H
+        sh_btc, sl_btc = detect_swing_points(df_btc_1h, lookback=settings.SWING_LOOKBACK_1H)
+        bos_btc = detect_bos(df_btc_1h, sh_btc, sl_btc)
+
+        # EMA 50 on BTC 1H
+        ema_50_btc = calc_ema(df_btc_1h["close"], 50)
+        btc_price = float(df_btc_1h["close"].iloc[-1])
+        btc_ema50 = float(ema_50_btc.iloc[-1])
+
+        if bos_btc and bos_btc.direction == Direction.BEARISH and btc_price < btc_ema50:
+            result["btc_bearish"] = True
+        elif bos_btc and bos_btc.direction == Direction.BULLISH and btc_price > btc_ema50:
+            result["btc_bullish"] = True
+
+        return result
+
+    # ── Main Loop ────────────────────────────────────────────────────────
+
     async def main_loop_tick(self) -> None:
         """
         Single tick of the main loop — called every 60 seconds.
 
-        Checks if a new 5m candle has closed, and if so, runs the
-        full analysis pipeline.
+        v2 pipeline order (from spec Part 11):
+        1. Check blackout state
+        2. Check BTC volatility
+        3. BTC structure analysis
+        4. Get session
+        5. Fetch candles
+        6. Fetch market data
+        7. Analyze each coin
+        8. Send signals
+        9. Periodic tasks (failure check, outcome tracking)
         """
         try:
             coins = coin_selector.coins
             if not coins:
+                return
+
+            # ── Step 1-2: Volatility blackout check ──
+            if await self._check_btc_volatility_blackout():
                 return
 
             # ── Check 5m candle close ──
@@ -134,14 +261,20 @@ class SignalRunner:
             self._last_5m_processed = get_last_closed_candle_open_time(settings.ENTRY_TF)
             logger.info(f"New 5m candle closed. Running analysis cycle...")
 
-            # ── Fetch latest 5m candles ──
+            # ── Step 3: BTC structure analysis ──
+            btc_state = self._analyze_btc_state()
+
+            # ── Step 4: Get current session ──
+            session_info = get_trading_session()
+
+            # ── Step 5: Fetch latest candles ──
             data_5m = await fetcher.fetch_ohlcv_batch(
                 coins, settings.ENTRY_TF, settings.CANDLE_LIMITS[settings.ENTRY_TF]
             )
             for symbol, df in data_5m.items():
                 data_store.update_ohlcv(symbol, settings.ENTRY_TF, df)
 
-            # ── Check if 15m needs refresh ──
+            # Check if 15m needs refresh
             if is_new_candle_closed(settings.SETUP_TF, self._last_15m_processed):
                 self._last_15m_processed = get_last_closed_candle_open_time(settings.SETUP_TF)
                 data_15m = await fetcher.fetch_ohlcv_batch(
@@ -150,7 +283,7 @@ class SignalRunner:
                 for symbol, df in data_15m.items():
                     data_store.update_ohlcv(symbol, settings.SETUP_TF, df)
 
-            # ── Check if 1H needs refresh ──
+            # Check if 1H needs refresh
             if is_new_candle_closed(settings.STRUCTURE_TF, self._last_1h_processed):
                 self._last_1h_processed = get_last_closed_candle_open_time(settings.STRUCTURE_TF)
                 data_1h = await fetcher.fetch_ohlcv_batch(
@@ -159,7 +292,7 @@ class SignalRunner:
                 for symbol, df in data_1h.items():
                     data_store.update_ohlcv(symbol, settings.STRUCTURE_TF, df)
 
-            # ── Check if 4H needs refresh ──
+            # Check if 4H needs refresh
             if is_new_candle_closed(settings.MACRO_TF, self._last_4h_processed):
                 self._last_4h_processed = get_last_closed_candle_open_time(settings.MACRO_TF)
                 data_4h = await fetcher.fetch_ohlcv_batch(
@@ -168,7 +301,7 @@ class SignalRunner:
                 for symbol, df in data_4h.items():
                     data_store.update_ohlcv(symbol, settings.MACRO_TF, df)
 
-            # ── Fetch market data ──
+            # ── Step 6: Fetch market data ──
             funding_rates = await fetcher.fetch_funding_rates_batch(coins)
             for symbol, rate in funding_rates.items():
                 data_store.update_funding_rate(symbol, rate)
@@ -177,7 +310,7 @@ class SignalRunner:
             for symbol, oi in oi_data.items():
                 data_store.update_oi_history(symbol, oi)
 
-            # ── Fetch L/S ratios (bonus data) ──
+            # Fetch L/S ratios (bonus data)
             for symbol in coins:
                 try:
                     ratio = await fetcher.fetch_long_short_ratio(symbol)
@@ -186,19 +319,32 @@ class SignalRunner:
                     pass
                 await asyncio.sleep(0.05)
 
-            # ── Analyze each coin ──
+            # ── Step 7: Analyze each coin ──
             self._signal_queue.clear()
+            self._cycle_results.clear()
 
             for symbol in coins:
                 try:
-                    await self._analyze_coin(symbol)
+                    # Determine if this is a BTC signal
+                    btc_state_for_coin = dict(btc_state)
+                    btc_state_for_coin["is_btc_symbol"] = (
+                        "BTC/USDT" in symbol or "BTCUSDT" in symbol
+                    )
+                    await self._analyze_coin(symbol, session_info, btc_state_for_coin)
                 except Exception as e:
                     logger.error(
                         f"Analysis failed for {symbol}: {e}\n{traceback.format_exc()}"
                     )
                     error_counter.record_error(symbol)
+                    self._cycle_results.append({
+                        "symbol": symbol, "status": "ERROR",
+                        "reason": str(e)[:60], "score": 0,
+                    })
 
-            # ── Send queued signals ──
+            # ── Step 7b: Log cycle summary ──
+            self._log_cycle_summary(session_info, btc_state)
+
+            # ── Step 8: Send queued signals ──
             for signal, ohlcv_15m in self._signal_queue:
                 try:
                     await telegram.send_signal(signal, ohlcv_15m)
@@ -225,10 +371,11 @@ class SignalRunner:
 
             logger.info(
                 f"Cycle complete. Signals sent: {len(self._signal_queue)}. "
+                f"Session: {session_info.get('session_name', '?')}. "
                 f"Next check in {settings.MAIN_LOOP_INTERVAL_SECONDS}s."
             )
 
-            # ── Update active signal statuses against current prices ──
+            # ── Step 9: Update active signal statuses ──
             price_map: dict[str, float] = {}
             for symbol in coins:
                 df = data_store.get_ohlcv(symbol, settings.ENTRY_TF)
@@ -239,19 +386,207 @@ class SignalRunner:
                 signal_logger.check_and_update_statuses(price_map)
                 signal_logger.expire_old_signals(max_age_hours=24)
 
+            # ── Step 10: Periodic failure check (every 15 min) ──
+            import time
+            now = time.time()
+            if now - self._last_failure_check > (
+                settings.COOLDOWN_FAILURE_CHECK_INTERVAL_MINUTES * 60
+            ):
+                self._last_failure_check = now
+                self._check_failure_states(price_map)
+
         except Exception as e:
             logger.error(f"Main loop error: {e}\n{traceback.format_exc()}")
             error_counter.record_error("global")
 
-    async def _analyze_coin(self, symbol: str) -> None:
+    def _check_failure_states(self, price_map: dict[str, float]) -> None:
         """
-        Run the full analysis pipeline for a single coin.
+        Check pending signals for failure state (v2).
+
+        If price crosses SL + 0.5×ATR, mark as FAILED and reset cooldown.
+
+        Args:
+            price_map: Dict of symbol -> current price.
+        """
+        try:
+            pending = signal_logger.get_pending_signals()
+            for sig in pending:
+                symbol = sig.get("symbol", "")
+                direction = sig.get("direction", "")
+                sl_price = sig.get("stop_loss", 0.0)
+
+                if symbol not in price_map:
+                    continue
+
+                current_price = price_map[symbol]
+
+                # Get ATR for this coin
+                atr_current = 0.0
+                coin_data = data_store.get_coin(symbol)
+                if coin_data and coin_data.indicators:
+                    atr_current = coin_data.indicators.get("atr", {}).get("15m_current", 0.0)
+
+                failure_buffer = settings.COOLDOWN_FAILURE_ATR_MULTIPLIER * atr_current
+
+                if direction == "LONG":
+                    failure_threshold = sl_price - failure_buffer
+                    if current_price < failure_threshold:
+                        signal_logger.mark_signal_failed(sig.get("id"))
+                        # Reset cooldown for this coin
+                        coin = data_store.get_coin(symbol)
+                        if coin:
+                            coin.last_signal_time = 0.0
+                        logger.info(
+                            f"Signal FAILED: {symbol} LONG — price {current_price} "
+                            f"< failure threshold {failure_threshold}"
+                        )
+                elif direction == "SHORT":
+                    failure_threshold = sl_price + failure_buffer
+                    if current_price > failure_threshold:
+                        signal_logger.mark_signal_failed(sig.get("id"))
+                        coin = data_store.get_coin(symbol)
+                        if coin:
+                            coin.last_signal_time = 0.0
+                        logger.info(
+                            f"Signal FAILED: {symbol} SHORT — price {current_price} "
+                            f"> failure threshold {failure_threshold}"
+                        )
+        except Exception as e:
+            logger.error(f"Failure state check error: {e}")
+
+    def _log_cycle_summary(
+        self, session_info: dict, btc_state: dict
+    ) -> None:
+        """
+        Log a detailed summary of the analysis cycle.
+
+        Shows:
+        - Status breakdown (signals/rejected/low_score/filtered/cooldown/skip)
+        - Top 10 scoring coins (leaderboard)
+        - Most common rejection reasons
+        - BTC state + session info
+        """
+        results = self._cycle_results
+        if not results:
+            return
+
+        # ── Status counts ──
+        status_counts: dict[str, int] = {}
+        for r in results:
+            s = r.get("status", "UNKNOWN")
+            status_counts[s] = status_counts.get(s, 0) + 1
+
+        status_line = " | ".join(f"{k}: {v}" for k, v in sorted(status_counts.items()))
+
+        logger.info("=" * 70)
+        logger.info(f"CYCLE SUMMARY  |  {status_line}")
+        logger.info(f"Session: {session_info.get('session_name', '?')} "
+                     f"({session_info.get('session_score', 0):+d})  |  "
+                     f"BTC: {'Bullish' if btc_state.get('btc_bullish') else 'Bearish' if btc_state.get('btc_bearish') else 'Neutral'}")
+        logger.info("-" * 70)
+
+        # ── Top scorers (any coin that scored > 0, sorted desc) ──
+        scored = [r for r in results if r.get("score", 0) > 0]
+        scored.sort(key=lambda x: x["score"], reverse=True)
+
+        if scored:
+            logger.info("TOP SCORERS:")
+            for i, r in enumerate(scored[:10]):
+                sym = r["symbol"]
+                score = r["score"]
+                status = r["status"]
+                direction = r.get("direction", "?")
+                reason = r.get("reason", "")
+
+                # Show scoring breakdown for top 5 if available
+                bar = "#" * min(score, 32) + "." * max(0, 32 - score)
+                status_emoji = {
+                    "SIGNAL": ">>>",
+                    "FILTERED": "~F~",
+                    "LOW_SCORE": "LOW",
+                    "REJECTED": "REJ",
+                }.get(status, "---")
+
+                line = f"  {status_emoji} {sym:<12} {direction:>5}  [{bar}] {score}/32  {reason}"
+                if status == "SIGNAL":
+                    logger.info(line)
+                else:
+                    logger.info(line)
+
+                # Print score detail breakdown for top 3 coins that have it
+                bd = r.get("breakdown")
+                if bd and i < 3 and bd.details:
+                    parts = []
+                    for cond_name, (passed, pts, info) in bd.details.items():
+                        if pts != 0:
+                            parts.append(f"{cond_name}={pts:+d}")
+                    if parts:
+                        logger.info(f"       Details: {', '.join(parts)}")
+        else:
+            logger.info("  No coins scored above 0 this cycle")
+
+        # ── Rejection reason summary ──
+        rejected = [r for r in results if r["status"] == "REJECTED"]
+        if rejected:
+            reason_counts: dict[str, int] = {}
+            for r in rejected:
+                # Extract just the failure condition (after the colon)
+                reason = r.get("reason", "Unknown")
+                # Normalize: strip direction prefix for counting
+                parts = reason.split(": ", 1)
+                key = parts[1] if len(parts) > 1 else parts[0]
+                # Shorten common patterns
+                if "EMA 50" in key:
+                    key = "4H EMA trend"
+                elif "ADX" in key:
+                    key = "ADX < 20 (ranging)"
+                elif "No 1H" in key:
+                    key = "No BOS"
+                elif "not in" in key and "OB" in key:
+                    key = "Not in OB"
+                elif "RSI" in key:
+                    key = "RSI out of range"
+                elif "Fibonacci" in key or "Fib" in key:
+                    key = "Fib zone"
+                elif "Funding" in key:
+                    key = "Funding rate"
+                reason_counts[key] = reason_counts.get(key, 0) + 1
+
+            sorted_reasons = sorted(reason_counts.items(), key=lambda x: -x[1])
+            reasons_str = ", ".join(f"{k}({v})" for k, v in sorted_reasons[:6])
+            logger.info(f"REJECTIONS ({len(rejected)}): {reasons_str}")
+
+        logger.info("=" * 70)
+
+    async def _analyze_coin(
+        self,
+        symbol: str,
+        session_info: dict,
+        btc_state: dict,
+    ) -> None:
+        """
+        Run the full analysis pipeline for a single coin (v2).
+
+        Logs detailed scoring info for every coin regardless of outcome.
 
         Args:
             symbol: Trading pair to analyze.
+            session_info: Current trading session info.
+            btc_state: BTC correlation state.
         """
+        # ── Import scorers for detailed logging ──
+        from analysis.scorer import (
+            calculate_score_long, calculate_score_short,
+        )
+
+        short_sym = symbol.replace("/USDT:USDT", "")
+
         # ── Cooldown check ──
         if data_store.is_in_cooldown(symbol):
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "COOLDOWN",
+                "reason": "In cooldown", "score": 0,
+            })
             return
 
         # ── Gather OHLCV ──
@@ -263,24 +598,37 @@ class SignalRunner:
 
         # Minimum data check
         if settings.MACRO_TF not in ohlcv or settings.ENTRY_TF not in ohlcv:
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "SKIP",
+                "reason": "Missing OHLCV data", "score": 0,
+            })
+            return
+        if settings.STRUCTURE_TF not in ohlcv or settings.SETUP_TF not in ohlcv:
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "SKIP",
+                "reason": "Missing OHLCV data", "score": 0,
+            })
             return
 
-        # ── Calculate indicators ──
-        indicators = calculate_all_indicators(ohlcv)
-        data_store.update_indicators(symbol, indicators)
+        # ── Calculate indicators (v2: nested dict) ──
+        try:
+            indicators = calculate_all_indicators(ohlcv)
+        except ValueError as e:
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "SKIP",
+                "reason": str(e)[:60], "score": 0,
+            })
+            return
 
-        # ── Run SMC analysis ──
-        atr_1h = indicators.get("1h_atr") if "1h_atr" in indicators else None
-        atr_15m = indicators.get("15m_atr") if "15m_atr" in indicators else None
-        smc = run_smc_analysis(ohlcv, atr_1h, atr_15m)
+        # Store indicators for failure state checks
+        coin_data = data_store.get_coin(symbol)
+        if coin_data:
+            coin_data.indicators = indicators
 
-        # Store SMC results
-        for key, value in smc.items():
-            if isinstance(value, list):
-                data_store.update_smc(symbol, key, value)
+        # ── Run SMC analysis (v2: passes indicators for ATR/RSI) ──
+        smc = run_smc_analysis(ohlcv, indicators)
 
         # ── Build market data dict ──
-        coin_data = data_store.get_coin(symbol)
         market: dict[str, Any] = {}
         if coin_data:
             market["funding_rate"] = coin_data.funding_rate
@@ -295,18 +643,73 @@ class SignalRunner:
             return
         current_price = float(df_5m["close"].iloc[-1])
 
-        # ── Check LONG ──
-        long_signal = check_long(symbol, indicators, smc, market, current_price)
+        # ── Run BOTH scorers for logging (even if they fail mandatory) ──
+        long_breakdown = calculate_score_long(
+            indicators, smc, market, current_price,
+            session_info=session_info, btc_state=btc_state,
+        )
+        short_breakdown = calculate_score_short(
+            indicators, smc, market, current_price,
+            session_info=session_info, btc_state=btc_state,
+        )
+
+        # Pick the best direction for logging
+        best_dir = "LONG" if long_breakdown.total_score >= short_breakdown.total_score else "SHORT"
+        best_bd = long_breakdown if best_dir == "LONG" else short_breakdown
+
+        # ── Check LONG (v2: pass session + BTC state) ──
+        long_signal = check_long(
+            symbol, indicators, smc, market, current_price,
+            session_info=session_info, btc_state=btc_state,
+        )
         if long_signal:
             ohlcv_15m = ohlcv.get(settings.SETUP_TF)
             self._signal_queue.append((long_signal, ohlcv_15m))
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "SIGNAL",
+                "reason": f"LONG score={long_signal.score}/{long_signal.max_score} ({long_signal.confidence})",
+                "score": long_signal.score, "direction": "LONG",
+                "breakdown": long_breakdown,
+            })
             return  # Don't check short if long fires
 
         # ── Check SHORT ──
-        short_signal = check_short(symbol, indicators, smc, market, current_price)
+        short_signal = check_short(
+            symbol, indicators, smc, market, current_price,
+            session_info=session_info, btc_state=btc_state,
+        )
         if short_signal:
             ohlcv_15m = ohlcv.get(settings.SETUP_TF)
             self._signal_queue.append((short_signal, ohlcv_15m))
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "SIGNAL",
+                "reason": f"SHORT score={short_signal.score}/{short_signal.max_score} ({short_signal.confidence})",
+                "score": short_signal.score, "direction": "SHORT",
+                "breakdown": short_breakdown,
+            })
+            return
+
+        # ── Both failed — log the best attempt ──
+        if not best_bd.mandatory_passed:
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "REJECTED",
+                "reason": f"{best_dir}: {best_bd.failed_mandatory}",
+                "score": best_bd.total_score, "direction": best_dir,
+            })
+        elif best_bd.total_score < settings.MIN_SCORE_TO_SIGNAL:
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "LOW_SCORE",
+                "reason": f"{best_dir}: {best_bd.total_score}/{best_bd.max_score}",
+                "score": best_bd.total_score, "direction": best_dir,
+                "breakdown": best_bd,
+            })
+        else:
+            # Passed mandatory + score but failed TP/SL or R:R or session gate
+            self._cycle_results.append({
+                "symbol": short_sym, "status": "FILTERED",
+                "reason": f"{best_dir}: score={best_bd.total_score} but failed TP/SL or R:R gate",
+                "score": best_bd.total_score, "direction": best_dir,
+            })
 
     async def daily_refresh(self) -> None:
         """
@@ -322,7 +725,7 @@ class SignalRunner:
         # Fetch fresh data for any new coins
         await self._fetch_all_timeframes(coin_selector.coins)
 
-        # Send daily report
+        # Send daily report (v2: includes hit rate)
         try:
             summary = signal_logger.get_daily_summary()
             await telegram.send_daily_report(

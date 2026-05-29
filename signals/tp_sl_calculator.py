@@ -54,9 +54,11 @@ def calculate_long_tp_sl(
     order_block: OrderBlock,
     atr_value: float,
     strong_trend: bool = False,
-) -> TPSLResult:
+) -> Optional[TPSLResult]:
     """
     Calculate TP/SL for a LONG signal.
+
+    v2: Returns None if SL distance exceeds MAX_SL_PERCENTAGE (3%).
 
     Args:
         entry_price: Suggested entry price (current price or OB midpoint).
@@ -65,7 +67,7 @@ def calculate_long_tp_sl(
         strong_trend: If True, include TP3 at 5x risk.
 
     Returns:
-        TPSLResult with all levels and R:R calculations.
+        TPSLResult with all levels, or None if SL exceeds max cap.
     """
     # Stop Loss: 1 ATR below the bottom of the Order Block
     sl = order_block.bottom - (settings.ATR_SL_MULTIPLIER * atr_value)
@@ -79,16 +81,16 @@ def calculate_long_tp_sl(
             f"Invalid long SL: entry={entry_price}, sl={sl}, "
             f"ob_bottom={order_block.bottom}, atr={atr_value}"
         )
-        return TPSLResult(
-            entry=entry_price,
-            stop_loss=sl,
-            tp1=entry_price,
-            tp2=entry_price,
-            tp3=None,
-            risk_distance=0,
-            rr_ratio=0,
-            passes_min_rr=False,
+        return None
+
+    # v2: Max SL percentage cap
+    sl_percentage = risk / entry_price
+    if sl_percentage > settings.MAX_SL_PERCENTAGE:
+        logger.info(
+            f"Signal discarded — SL distance {sl_percentage:.1%} "
+            f"exceeds {settings.MAX_SL_PERCENTAGE:.0%} cap"
         )
+        return None
 
     # Take Profit levels
     tp1 = entry_price + (settings.TP1_RR * risk)
@@ -118,9 +120,11 @@ def calculate_short_tp_sl(
     order_block: OrderBlock,
     atr_value: float,
     strong_trend: bool = False,
-) -> TPSLResult:
+) -> Optional[TPSLResult]:
     """
     Calculate TP/SL for a SHORT signal.
+
+    v2: Returns None if SL distance exceeds MAX_SL_PERCENTAGE (3%).
 
     Args:
         entry_price: Suggested entry price.
@@ -129,7 +133,7 @@ def calculate_short_tp_sl(
         strong_trend: If True, include TP3 at 5x risk.
 
     Returns:
-        TPSLResult with all levels and R:R calculations.
+        TPSLResult with all levels, or None if SL exceeds max cap.
     """
     # Stop Loss: 1 ATR above the top of the Order Block
     sl = order_block.top + (settings.ATR_SL_MULTIPLIER * atr_value)
@@ -142,16 +146,16 @@ def calculate_short_tp_sl(
             f"Invalid short SL: entry={entry_price}, sl={sl}, "
             f"ob_top={order_block.top}, atr={atr_value}"
         )
-        return TPSLResult(
-            entry=entry_price,
-            stop_loss=sl,
-            tp1=entry_price,
-            tp2=entry_price,
-            tp3=None,
-            risk_distance=0,
-            rr_ratio=0,
-            passes_min_rr=False,
+        return None
+
+    # v2: Max SL percentage cap
+    sl_percentage = risk / entry_price
+    if sl_percentage > settings.MAX_SL_PERCENTAGE:
+        logger.info(
+            f"Signal discarded — SL distance {sl_percentage:.1%} "
+            f"exceeds {settings.MAX_SL_PERCENTAGE:.0%} cap"
         )
+        return None
 
     # Take Profit levels (below entry for shorts)
     tp1 = entry_price - (settings.TP1_RR * risk)

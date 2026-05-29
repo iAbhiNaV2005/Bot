@@ -869,3 +869,100 @@
 [2026-05-29 01:45:46] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
 [2026-05-29 01:46:08] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
 [2026-05-29 01:46:24] [INFO] [__main__] Received signal 2. Initiating shutdown...
+[2026-05-29 12:39:24] [INFO] [database.signal_log] Migrated signals table: added column 'failure_detected'
+[2026-05-29 12:39:24] [INFO] [database.signal_log] Migrated signals table: added column 'failure_detected_at'
+[2026-05-29 12:39:24] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 12:40:12] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 12:40:41] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 12:40:41] [WARNING] [analysis.indicators] 4H data has only 100 candles (need 200)
+[2026-05-29 12:53:07] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-29 12:53:07] [INFO] [__main__] ============================================================
+[2026-05-29 12:53:07] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-29 12:53:07] [INFO] [__main__] ============================================================
+[2026-05-29 12:53:07] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-29 12:53:07] [INFO] [__main__]   Top coins: 50
+[2026-05-29 12:53:07] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-29 12:53:07] [INFO] [__main__]   Min score: 10/32
+[2026-05-29 12:53:07] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-29 12:53:07] [INFO] [__main__]   Dry run: False
+[2026-05-29 12:53:07] [INFO] [__main__] ============================================================
+[2026-05-29 12:53:07] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 12:53:07] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-29 12:53:07] [INFO] [scheduler.runner] ============================================================
+[2026-05-29 12:53:07] [INFO] [data.coin_selector] Loaded 50 coins from disk (last refresh: 1779997618.9014795)
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ICP/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added TAO/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added PLAY/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added UB/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added DOGE/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added LAB/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ONDO/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added HYPE/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ETH/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added PUMP/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added AVAX/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added LTC/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added SOL/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added HBAR/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ZEC/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added XLM/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ADA/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added FET/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added 1000PEPE/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added FIL/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added SEI/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added AAVE/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added SWARMS/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added TRX/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ENA/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added BTC/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added BSB/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added TON/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added GENIUS/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added BILL/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added DOT/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added H/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added TRUMP/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added GUA/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added XRP/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added PAXG/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added UNI/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added VVV/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ALLO/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added PRL/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added LINK/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added BEAT/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added INJ/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added ESPORTS/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added NEAR/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added SUI/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added BNB/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added BCH/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added SKYAI/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [data.storage] Added WLD/USDT:USDT to data store
+[2026-05-29 12:53:07] [INFO] [scheduler.runner] Tracking 50 coins
+[2026-05-29 12:53:07] [INFO] [scheduler.runner] Fetching 4h candles for 50 coins...
+[2026-05-29 12:53:28] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-29 12:53:28] [INFO] [scheduler.runner] Fetching 1h candles for 50 coins...
+[2026-05-29 12:53:49] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-29 12:53:49] [INFO] [scheduler.runner] Fetching 15m candles for 50 coins...
+[2026-05-29 12:54:10] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 12:54:10] [INFO] [scheduler.runner] Fetching 5m candles for 50 coins...
+[2026-05-29 12:54:32] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 12:54:32] [INFO] [scheduler.runner] Initial OHLCV fetch complete
+[2026-05-29 12:54:33] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-29 12:54:33] [INFO] [scheduler.runner] Startup complete. Entering main loop.
+[2026-05-29 12:54:33] [INFO] [__main__] Scheduler started. Bot is now running.
+[2026-05-29 12:55:33] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 12:55:54] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 12:56:16] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 12:56:37] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-29 12:56:59] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-29 12:57:47] [WARNING] [analysis.indicators] 4H data has only 132 candles (need 200)
+[2026-05-29 12:57:47] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Asian. Next check in 60s.
+[2026-05-29 13:00:33] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-29 13:00:51] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-29 13:01:11] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-29 13:01:58] [WARNING] [analysis.indicators] 4H data has only 132 candles (need 200)
+[2026-05-29 13:01:58] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Asian. Next check in 60s.
+[2026-05-29 13:04:31] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db

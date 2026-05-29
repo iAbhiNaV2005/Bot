@@ -1,8 +1,9 @@
 """
-delivery/message_templates.py — Signal message format templates.
+delivery/message_templates.py — Signal message format templates (v2).
 
 Uses HTML parse mode (not Markdown) for reliable Telegram rendering.
-Every template matches the exact format specified in Part 10 of the strategy.
+Updated to include session, BTC context, ADX, Fibonacci zone,
+liquidity sweep, RSI divergence, OB touch/rejection info.
 """
 
 from datetime import datetime, timezone
@@ -36,15 +37,15 @@ def _format_price(price: float) -> str:
 
 def format_signal_message(signal: Signal) -> str:
     """
-    Format a complete signal message in HTML for Telegram.
+    Format a complete signal message in HTML for Telegram (v2).
 
-    Matches the exact template from Part 10:
+    Updated format:
     - Direction emoji + coin + timeframe
-    - Score + confidence tag
+    - Score X/32 + confidence tag
     - Entry zone, TP1, TP2, TP3, SL
-    - SMC basis section
+    - SMC basis section (with sweep, divergence, OB touch, rejection, fib)
     - Indicator basis section
-    - Market context section
+    - Market context section (with session, BTC, ADX)
     - Disclaimer + timestamp
 
     Args:
@@ -80,9 +81,25 @@ def format_signal_message(signal: Signal) -> str:
 
     # Market context
     ctx = signal.market_context
-    funding_line = f"  • Funding Rate: {ctx.get('funding_rate', 'N/A')}"
-    oi_line = f"  • Open Interest: {ctx.get('open_interest', 'N/A')}"
-    ls_line = f"  • L/S Ratio: {ctx.get('ls_ratio', 'N/A')}"
+    context_lines = []
+
+    # v2: Session + BTC context first
+    if "session" in ctx:
+        context_lines.append(f"  • Session: {ctx['session']}")
+    if "btc_context" in ctx:
+        context_lines.append(f"  • BTC: {ctx['btc_context']}")
+    if "adx" in ctx:
+        context_lines.append(f"  • ADX (1H): {ctx['adx']}")
+
+    # Standard market data
+    if "funding_rate" in ctx:
+        context_lines.append(f"  • Funding: {ctx['funding_rate']}")
+    if "open_interest" in ctx:
+        context_lines.append(f"  • OI: {ctx['open_interest']}")
+    if "ls_ratio" in ctx:
+        context_lines.append(f"  • L/S Ratio: {ctx['ls_ratio']}")
+
+    context_block = "\n".join(context_lines) if context_lines else "  • N/A"
 
     # Timestamp
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -105,9 +122,7 @@ def format_signal_message(signal: Signal) -> str:
         f"{indicator_lines}\n"
         f"\n"
         f"🌐 <b>Market Context:</b>\n"
-        f"{funding_line}\n"
-        f"{oi_line}\n"
-        f"{ls_line}\n"
+        f"{context_block}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"⚠️ Not financial advice. Manage risk.\n"
         f"🕐 {now}"
@@ -125,11 +140,13 @@ def format_startup_message() -> str:
     """
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     return (
-        f"✅ <b>Bot Started</b>\n"
+        f"✅ <b>Bot Started (v2)</b>\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"📊 SMC Momentum Confluence Bot\n"
         f"🔄 Scanning top 50 USDT futures by volume\n"
         f"⏰ 5-minute candle cycle active\n"
+        f"🆕 ADX gate | Fibonacci zones | Session filter\n"
+        f"🆕 Liquidity sweeps | RSI divergence | BTC correlation\n"
         f"🕐 {now}"
     )
 
@@ -137,7 +154,7 @@ def format_startup_message() -> str:
 def format_restart_message() -> str:
     """Format bot restart notification."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    return f"🔄 <b>BOT RESTARTED</b>\n🕐 {now}"
+    return f"🔄 <b>BOT RESTARTED (v2)</b>\n🕐 {now}"
 
 
 def format_error_alert(key: str, count: int) -> str:
@@ -166,9 +183,10 @@ def format_daily_report(
     high_confidence: int,
     avg_score: float,
     coins_scanned: int,
+    tp1_hit_rate: Optional[float] = None,
 ) -> str:
     """
-    Format the daily status report.
+    Format the daily status report (v2: includes TP1 hit rate).
 
     Args:
         total_signals: Total signals sent today.
@@ -177,11 +195,18 @@ def format_daily_report(
         high_confidence: Number of high-confidence signals.
         avg_score: Average signal score.
         coins_scanned: Number of coins actively scanned.
+        tp1_hit_rate: TP1 hit rate percentage (v2, optional).
 
     Returns:
         HTML-formatted daily report.
     """
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    # v2: TP1 hit rate line
+    hit_rate_line = ""
+    if tp1_hit_rate is not None:
+        hit_rate_line = f"\n  📊 TP1 Hit Rate: {tp1_hit_rate:.0f}%"
+
     return (
         f"📋 <b>Daily Report — {now}</b>\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -189,7 +214,8 @@ def format_daily_report(
         f"  🟢 Long: {long_signals}\n"
         f"  🔴 Short: {short_signals}\n"
         f"  🔥 High Confidence: {high_confidence}\n"
-        f"  📈 Avg Score: {avg_score:.1f}\n"
+        f"  📈 Avg Score: {avg_score:.1f}/32"
+        f"{hit_rate_line}\n"
         f"  🔍 Coins Scanned: {coins_scanned}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"✅ Bot operating normally"

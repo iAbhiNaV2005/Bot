@@ -157,6 +157,34 @@ def timestamp_to_utc(ts: int | float) -> datetime:
     return datetime.fromtimestamp(ts, tz=timezone.utc)
 
 
+def get_trading_session() -> dict[str, any]:
+    """
+    Determine the current trading session based on UTC hour.
+
+    Returns a dict with session name and score modifier:
+      - Asian    (00:00–07:59 UTC): -2 (low quality)
+      - London   (08:00–12:59 UTC): +2 (good quality)
+      - Overlap  (13:00–16:59 UTC): +3 (London-NY overlap, best quality)
+      - NY       (17:00–20:59 UTC): +1 (decent quality)
+      - Late     (21:00–23:59 UTC): -1 (dead zone)
+
+    Returns:
+        Dict with 'session_name' (str) and 'session_score' (int).
+    """
+    hour = utc_now().hour
+
+    if settings.SESSION_ASIAN_START_UTC <= hour <= settings.SESSION_ASIAN_END_UTC:
+        return {"session_name": "Asian", "session_score": settings.SESSION_ASIAN_SCORE}
+    elif settings.SESSION_LONDON_START_UTC <= hour <= settings.SESSION_LONDON_END_UTC:
+        return {"session_name": "London", "session_score": settings.SESSION_LONDON_SCORE}
+    elif settings.SESSION_OVERLAP_START_UTC <= hour <= settings.SESSION_OVERLAP_END_UTC:
+        return {"session_name": "Overlap", "session_score": settings.SESSION_OVERLAP_SCORE}
+    elif settings.SESSION_NY_START_UTC <= hour <= settings.SESSION_NY_END_UTC:
+        return {"session_name": "NY", "session_score": settings.SESSION_NY_SCORE}
+    else:
+        return {"session_name": "Late", "session_score": settings.SESSION_LATE_SCORE}
+
+
 def is_midnight_utc() -> bool:
     """Check if the current UTC hour is 0 (midnight)."""
     return utc_now().hour == 0

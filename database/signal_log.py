@@ -120,6 +120,9 @@ class SignalLogger:
             ("current_price", "REAL"),
             ("pnl_pct", "REAL DEFAULT 0.0"),
             ("closed_at", "TEXT"),
+            # v2: Failure tracking
+            ("failure_detected", "INTEGER DEFAULT 0"),
+            ("failure_detected_at", "TEXT"),
         ]
         for col_name, col_def in migrations:
             if col_name not in existing:
@@ -470,6 +473,7 @@ class SignalLogger:
                     SUM(CASE WHEN status LIKE 'TP%' THEN 1 ELSE 0 END) as tp_hits,
                     SUM(CASE WHEN status = 'SL_HIT' THEN 1 ELSE 0 END) as sl_hits,
                     SUM(CASE WHEN status = 'EXPIRED' THEN 1 ELSE 0 END) as expired,
+                    SUM(CASE WHEN status = 'FAILED' THEN 1 ELSE 0 END) as failed,
                     SUM(CASE WHEN direction = 'LONG' THEN 1 ELSE 0 END) as longs,
                     SUM(CASE WHEN direction = 'SHORT' THEN 1 ELSE 0 END) as shorts,
                     AVG(CASE WHEN status != 'ACTIVE' THEN pnl_pct END) as avg_pnl,
@@ -481,11 +485,40 @@ class SignalLogger:
             conn.close()
 
 
+    def get_pending_signals(self) -> list[dict[str, Any]]:
+        """
+        Get all active (pending) signals for failure checking.
+
+        Returns:
+            List of active signal dicts.
+        """
+        return self.get_active_signals()
+
+    def mark_signal_failed(self, signal_id: int) -> None:
+        """
+        Mark a signal as FAILED (v2).
+
+        Sets status to FAILED and records the failure timestamp.
+        Used when price crosses SL + 0.5×ATR.
+
+        Args:
+            signal_id: Row ID of the signal to mark.
+        """
+        now = datetime.now(timezone.utc).isoformat()
+        conn = self._get_connection()
+        try:
+            conn.execute(
+                """UPDATE signals
+                   SET status = 'FAILED', failure_detected = 1,
+                       failure_detected_at = ?, closed_at = ?
+                   WHERE id = ?""",
+                (now, now, signal_id),
+            )
+            conn.commit()
+            logger.info(f"Signal #{signal_id} marked as FAILED")
+        finally:
+            conn.close()
+
+
 # Module-level singleton
 signal_logger = SignalLogger()
-
-
-
-# Module-level singleton
-signal_logger = SignalLogger()
-

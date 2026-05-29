@@ -229,6 +229,7 @@ DASHBOARD_HTML = """
   .badge-tp2 { background: var(--green-dim); color: #4ade80; }
   .badge-tp3 { background: var(--purple-dim); color: var(--purple); }
   .badge-sl { background: var(--red-dim); color: var(--red); }
+  .badge-failed { background: var(--red-dim); color: var(--red); }
   .badge-expired { background: var(--amber-dim); color: var(--amber); }
   .badge-high { background: var(--amber-dim); color: var(--amber); }
   .badge-standard { background: #1e293b; color: var(--text-secondary); }
@@ -415,6 +416,7 @@ function statusBadge(status) {
     'TP2_HIT': 'badge-tp2',
     'TP3_HIT': 'badge-tp3',
     'SL_HIT': 'badge-sl',
+    'FAILED': 'badge-failed',
     'EXPIRED': 'badge-expired',
   };
   const cls = map[status] || 'badge-active';
@@ -470,11 +472,12 @@ async function fetchData() {
     document.getElementById('stat-tp').textContent = stats.tp_hits || 0;
     document.getElementById('stat-sl').textContent = stats.sl_hits || 0;
 
-    const closed = (stats.tp_hits || 0) + (stats.sl_hits || 0);
+    const closed = (stats.tp_hits || 0) + (stats.sl_hits || 0) + (stats.failed || 0);
+    const losses = (stats.sl_hits || 0) + (stats.failed || 0);
     const wr = closed > 0 ? ((stats.tp_hits / closed) * 100).toFixed(0) : '—';
     document.getElementById('stat-winrate').textContent = wr === '—' ? wr : wr + '%';
     document.getElementById('stat-winrate').style.color = wr === '—' ? '' : (parseFloat(wr) >= 50 ? 'var(--green)' : 'var(--red)');
-    document.getElementById('stat-winrate-sub').textContent = closed > 0 ? `${stats.tp_hits}W / ${stats.sl_hits}L` : '';
+    document.getElementById('stat-winrate-sub').textContent = closed > 0 ? `${stats.tp_hits}W / ${losses}L` : '';
 
     const avgPnl = stats.avg_pnl;
     if (avgPnl != null) {
