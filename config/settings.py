@@ -7,6 +7,8 @@ No hardcoded values anywhere else in the codebase.
 v2: Added SMC improvements — ADX, Fibonacci, liquidity sweep, session filter,
     BTC correlation, volatility blackout, OB touch tracking, RSI divergence,
     OB rejection confirmation, max SL cap, outcome tracking.
+v3: Equal highs/lows liquidity zones, volume-quality OB scoring,
+    hybrid real-time volume refresh with live coin swapping.
 """
 
 import os
@@ -254,3 +256,35 @@ PROJECT_ROOT: Path = _PROJECT_ROOT
 DB_PATH: str = str(_PROJECT_ROOT / "database" / "signals.db")
 LOG_DIR: str = str(_PROJECT_ROOT / "logs")
 CHART_TMP_DIR: str = str(_PROJECT_ROOT / "tmp")
+
+# ---------------------------------------------------------------------------
+# EQUAL HIGHS / EQUAL LOWS SETTINGS (v3 — Improvement A)
+# ---------------------------------------------------------------------------
+EQUAL_LEVEL_TOLERANCE: float = 0.0015        # 0.15% price proximity to cluster
+EQUAL_LEVEL_MAX_AGE_CANDLES: int = 50        # scan last 50 1H candles only
+EQUAL_LEVEL_MAX_AGE_GAP_CANDLES: int = 40   # max candle gap between two members
+EQUAL_LEVEL_PROXIMITY_ATR_MULT: float = 1.5  # price within 1.5×ATR(1H) of zone
+EQUAL_LEVEL_SWEEP_EXPIRE_CANDLES: int = 10   # remove swept zones after 10 candles
+SCORE_EQUAL_DOUBLE: int = 2                  # 2 swing highs/lows in cluster
+SCORE_EQUAL_TRIPLE: int = 3                  # 3+ swing highs/lows (triple tap)
+
+# ---------------------------------------------------------------------------
+# VOLUME QUALITY OB SETTINGS (v3 — Improvement B)
+# ---------------------------------------------------------------------------
+OB_VOLUME_SMA_PERIOD: int = 20              # historical SMA candles before impulse
+OB_VOLUME_QUALITY_THRESHOLD: float = 2.0   # impulse avg vol must be 2× SMA
+OB_VOLUME_QUALITY_SCORE: int = 1           # bonus points when threshold met
+
+# ---------------------------------------------------------------------------
+# HYBRID VOLUME REFRESH SETTINGS (v3 — Improvement C)
+# ---------------------------------------------------------------------------
+TICKER_REFRESH_EVERY_CYCLE: bool = True     # fetch all tickers every 5m cycle
+COIN_RANK_DROP_THRESHOLD: int = 65          # remove coin if rank falls beyond this
+COIN_RANK_RISE_THRESHOLD: int = 35          # add coin only if rank is within this
+COIN_SWAP_OHLCV_LIMIT: int = 200           # candles to fetch for a newly added coin
+VOLUME_SPIKE_THRESHOLD: float = 0.05       # +5% 5m volume change → show in message
+
+# Update MAX_POSSIBLE_SCORE to reflect new conditions (v3)
+# Equal level: max +3, volume quality OB: +1 → new max = 32 + 3 + 1 = 36
+# (Keeping 37 to leave headroom)
+MAX_POSSIBLE_SCORE: int = 37

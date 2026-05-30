@@ -1,13 +1,15 @@
 """
-analysis/scorer.py — Signal scoring logic (v2: 32-point system).
+analysis/scorer.py — Signal scoring logic (v3: 37-point system).
 
 Implements the updated scoring system with:
 - 9 mandatory conditions (instant discard if false)
-- 20 scoring conditions (additive points, max ~32)
+- 22 scoring conditions (additive points, max ~37)
 
 New v2 additions: ADX gate, Fibonacci zone, max SL cap,
 session scoring, liquidity sweep, RSI divergence, ADX tiers,
 OB rejection, OB touch freshness, deep fib zone, BTC correlation.
+New v3 additions: Equal Highs/Lows zone proximity (+2/+3),
+Volume Quality OB bonus (+1).
 """
 
 from dataclasses import dataclass, field
@@ -16,7 +18,7 @@ from typing import Any, Optional
 import pandas as pd
 
 from analysis.smc import (
-    BOS, CHoCH, Direction, FVG, OrderBlock,
+    BOS, CHoCH, Direction, EqualLevel, FVG, OrderBlock,
     is_price_in_order_block,
 )
 from config import settings
@@ -396,13 +398,44 @@ def calculate_score_long(
             if btc_bullish:
                 pts = settings.SCORE_BTC_BULLISH
                 score += pts
-                details["btc_corr"] = (True, pts, "BTC structure bullish ✅")
+                details["btc_corr"] = (True, pts, "BTC structure bullish")
             elif btc_bearish:
                 pts = settings.SCORE_BTC_BEARISH
                 score += pts
-                details["btc_corr"] = (False, pts, "BTC structure bearish ⚠️")
+                details["btc_corr"] = (False, pts, "BTC structure bearish")
             else:
                 details["btc_corr"] = (False, 0, "BTC structure neutral")
+
+    # 18. Equal Lows proximity (v3): price within 1.5x 1H ATR above an unswept EQL zone
+    eq_lows: list[EqualLevel] = smc.get("equal_lows", [])
+    atr_1h_val = indicators.get("atr", {}).get("1h_current", 0.0)
+    eq_long_pts = 0
+    eq_long_info = "No equal lows zone"
+    if atr_1h_val > 0:
+        proximity_band = settings.EQUAL_LEVEL_PROXIMITY_ATR_MULT * atr_1h_val
+        for ez in eq_lows:
+            if ez.swept:
+                continue
+            # Price must be ABOVE zone and within proximity_band
+            if ez.zone_price <= current_price <= ez.zone_price + proximity_band:
+                if ez.member_count >= 3:
+                    eq_long_pts = settings.SCORE_EQUAL_TRIPLE
+                    eq_long_info = f"Triple equal lows @ {ez.zone_price:.4f} ({ez.member_count} taps)"
+                else:
+                    eq_long_pts = settings.SCORE_EQUAL_DOUBLE
+                    eq_long_info = f"Double equal lows @ {ez.zone_price:.4f}"
+                break  # use highest-scoring zone found first
+    score += eq_long_pts
+    details["equal_lows"] = (eq_long_pts > 0, eq_long_pts, eq_long_info)
+
+    # 19. Volume Quality OB (v3): active OB was formed on high-volume impulse (+1)
+    ob_vol_pts = 0
+    ob_vol_info = "OB vol quality N/A"
+    if active_ob is not None and active_ob.volume_quality_score == 1:
+        ob_vol_pts = settings.OB_VOLUME_QUALITY_SCORE
+        ob_vol_info = f"High-vol OB ({active_ob.impulse_volume_ratio:.1f}x avg)"
+    score += ob_vol_pts
+    details["ob_vol_quality"] = (ob_vol_pts > 0, ob_vol_pts, ob_vol_info)
 
     # ── Finalize ──
     breakdown.total_score = score
@@ -622,13 +655,44 @@ def calculate_score_short(
             if btc_bearish:
                 pts = settings.SCORE_BTC_BULLISH  # bonus for shorts when BTC bearish
                 score += pts
-                details["btc_corr"] = (True, pts, "BTC structure bearish (aligns with short) ✅")
+                details["btc_corr"] = (True, pts, "BTC structure bearish (aligns with short)")
             elif btc_bullish:
                 pts = settings.SCORE_BTC_BEARISH  # penalty for shorts when BTC bullish
                 score += pts
-                details["btc_corr"] = (False, pts, "BTC structure bullish ⚠️ (counter-trend short)")
+                details["btc_corr"] = (False, pts, "BTC structure bullish (counter-trend short)")
             else:
                 details["btc_corr"] = (False, 0, "BTC structure neutral")
+
+    # 18. Equal Highs proximity (v3): price within 1.5x 1H ATR below an unswept EQH zone
+    eq_highs: list[EqualLevel] = smc.get("equal_highs", [])
+    atr_1h_val = indicators.get("atr", {}).get("1h_current", 0.0)
+    eq_short_pts = 0
+    eq_short_info = "No equal highs zone"
+    if atr_1h_val > 0:
+        proximity_band = settings.EQUAL_LEVEL_PROXIMITY_ATR_MULT * atr_1h_val
+        for ez in eq_highs:
+            if ez.swept:
+                continue
+            # Price must be BELOW zone and within proximity_band
+            if ez.zone_price - proximity_band <= current_price <= ez.zone_price:
+                if ez.member_count >= 3:
+                    eq_short_pts = settings.SCORE_EQUAL_TRIPLE
+                    eq_short_info = f"Triple equal highs @ {ez.zone_price:.4f} ({ez.member_count} taps)"
+                else:
+                    eq_short_pts = settings.SCORE_EQUAL_DOUBLE
+                    eq_short_info = f"Double equal highs @ {ez.zone_price:.4f}"
+                break
+    score += eq_short_pts
+    details["equal_highs"] = (eq_short_pts > 0, eq_short_pts, eq_short_info)
+
+    # 19. Volume Quality OB (v3): active bearish OB was formed on high-volume impulse (+1)
+    ob_vol_pts = 0
+    ob_vol_info = "OB vol quality N/A"
+    if active_ob is not None and active_ob.volume_quality_score == 1:
+        ob_vol_pts = settings.OB_VOLUME_QUALITY_SCORE
+        ob_vol_info = f"High-vol OB ({active_ob.impulse_volume_ratio:.1f}x avg)"
+    score += ob_vol_pts
+    details["ob_vol_quality"] = (ob_vol_pts > 0, ob_vol_pts, ob_vol_info)
 
     # ── Finalize ──
     breakdown.total_score = score

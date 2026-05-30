@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from signals.long_signal import Signal
+from config import settings
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -98,6 +99,13 @@ def format_signal_message(signal: Signal) -> str:
         context_lines.append(f"  • OI: {ctx['open_interest']}")
     if "ls_ratio" in ctx:
         context_lines.append(f"  • L/S Ratio: {ctx['ls_ratio']}")
+
+    # v3: Volume spike alert (informational only — not a score condition)
+    vol_change = ctx.get("volume_change_pct", 0.0)
+    if vol_change is not None and vol_change > settings.VOLUME_SPIKE_THRESHOLD:
+        context_lines.append(
+            f"  • Volume spike: +{vol_change:.1%} in 5m ⚡"
+        )
 
     context_block = "\n".join(context_lines) if context_lines else "  • N/A"
 

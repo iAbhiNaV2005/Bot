@@ -44,6 +44,7 @@ class CoinData:
     funding_rate: Optional[float] = None
     oi_history: list[dict[str, Any]] = field(default_factory=list)
     ls_ratio: Optional[float] = None
+    volume_change_pct: float = 0.0  # v3: 5m change in 24h volume from ticker snapshot
 
 
 class DataStore:

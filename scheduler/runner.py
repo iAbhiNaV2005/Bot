@@ -1,5 +1,5 @@
 """
-scheduler/runner.py — Main loop, timing, and orchestration (v2).
+scheduler/runner.py — Main loop, timing, and orchestration (v3).
 
 This is the brain of the bot. It:
 1. Checks BTC volatility blackout before any analysis
@@ -9,9 +9,13 @@ This is the brain of the bot. It:
 5. Manages periodic tasks (15m/1h/4h/24h refreshes)
 6. Tracks signal outcomes and failure states
 7. Sends alerts when thresholds are reached
+8. Fetches tickers every cycle for live volume tracking (v3)
+9. Runs hourly coin rank comparison and queues swaps (v3)
 
 v2: Added volatility blackout, BTC correlation, session scoring,
     OB touch updates, failure state checks, outcome tracking.
+v3: Hybrid volume refresh — ticker every 5m, hourly rank check,
+    live coin swap without restart.
 """
 
 import asyncio
@@ -72,6 +76,14 @@ class SignalRunner:
         # v2: Volatility blackout state
         self._signals_paused: bool = False
         self._signals_paused_until: Optional[datetime] = None
+
+        # v3: Hybrid volume refresh state
+        self._last_ticker_snapshot: dict[str, float] = {}  # symbol -> 24h quote volume
+        self._list_update_pending: bool = False
+        self._pending_add_coins: list[str] = []
+        self._pending_remove_coins: list[str] = []
+        self._last_hourly_rank_check: float = 0.0  # unix timestamp
+        self._last_ticker_fetch: dict[str, Any] = {}  # full ticker cache
 
     async def startup(self) -> None:
         """
@@ -300,6 +312,20 @@ class SignalRunner:
                 )
                 for symbol, df in data_4h.items():
                     data_store.update_ohlcv(symbol, settings.MACRO_TF, df)
+
+            # ── Step 5b: Ticker fetch every cycle (v3 — hybrid volume refresh) ──
+            try:
+                self._last_ticker_fetch = await fetcher.fetch_all_tickers()
+                await self._update_volume_changes(coins)
+                # Hourly rank comparison (runs only at HH:01 UTC)
+                await self._hourly_rank_check()
+            except Exception as e:
+                logger.warning(f"Ticker fetch failed (non-critical): {e}")
+
+            # Apply any pending coin list swaps atomically (v3)
+            if self._list_update_pending:
+                await self._apply_pending_coin_swap()
+                coins = coin_selector.coins  # refresh local ref after swap
 
             # ── Step 6: Fetch market data ──
             funding_rates = await fetcher.fetch_funding_rates_batch(coins)
@@ -636,6 +662,7 @@ class SignalRunner:
             market["oi_increasing"] = oi_increasing
             market["oi_change"] = oi_change
             market["ls_ratio"] = coin_data.ls_ratio
+            market["volume_change_pct"] = coin_data.volume_change_pct  # v3: spike context
 
         # ── Get current price ──
         df_5m = ohlcv.get(settings.ENTRY_TF)
@@ -710,6 +737,172 @@ class SignalRunner:
                 "reason": f"{best_dir}: score={best_bd.total_score} but failed TP/SL or R:R gate",
                 "score": best_bd.total_score, "direction": best_dir,
             })
+
+    async def _update_volume_changes(self, coins: list[str]) -> None:
+        """
+        Update 24h volume and 5m volume change for all tracked coins (v3).
+
+        Called every 5m cycle after fetching tickers. Computes percentage
+        change against the previous cycle's snapshot and stores it per coin.
+
+        Args:
+            coins: Active coin list.
+        """
+        tickers = self._last_ticker_fetch
+        if not tickers:
+            return
+
+        for symbol in coins:
+            ticker = tickers.get(symbol)
+            if ticker is None:
+                continue
+
+            current_vol = float(ticker.get("quoteVolume", 0) or 0)
+            prev_vol = self._last_ticker_snapshot.get(symbol, 0.0)
+
+            if prev_vol > 0:
+                change_pct = (current_vol - prev_vol) / prev_vol
+            else:
+                change_pct = 0.0
+
+            coin_data = data_store.get_coin(symbol)
+            if coin_data is not None:
+                coin_data.volume_change_pct = change_pct
+
+        # Update snapshot for next cycle
+        self._last_ticker_snapshot = {
+            sym: float(tickers[sym].get("quoteVolume", 0) or 0)
+            for sym in tickers
+        }
+
+    async def _hourly_rank_check(self) -> None:
+        """
+        Compare current coin ranks against thresholds; queue swaps if needed (v3).
+
+        Runs at HH:01 UTC each hour. Uses the last ticker snapshot already in
+        memory (no extra API call). Sets _list_update_pending = True when any
+        coin has drifted outside the threshold window. The actual swap is
+        executed safely at the start of the next 5m analysis cycle.
+
+        Swap logic:
+        - Remove if rank > COIN_RANK_DROP_THRESHOLD AND a replacement exists
+          with rank < COIN_RANK_RISE_THRESHOLD.
+        - Only queues, never executes directly (atomic swap in main loop).
+        """
+        import time
+        now = time.time()
+        # Run once per hour at approximately HH:01 UTC
+        if now - self._last_hourly_rank_check < 3500:
+            return
+
+        tickers = self._last_ticker_fetch
+        if not tickers:
+            return
+
+        # Sort all tickers by 24h quote volume descending
+        ranked = sorted(
+            [(sym, float(t.get("quoteVolume", 0) or 0)) for sym, t in tickers.items()],
+            key=lambda x: -x[1],
+        )
+        rank_map: dict[str, int] = {sym: i + 1 for i, (sym, _) in enumerate(ranked)}
+
+        current_coins = set(coin_selector.coins)
+        stablecoin_set = {
+            f"{s.replace('USDT', '')}/USDT:USDT" for s in settings.STABLECOIN_SYMBOLS
+        }
+
+        to_remove: list[str] = []
+        to_add: list[str] = []
+
+        for coin in list(current_coins):
+            rank = rank_map.get(coin, 9999)
+            if rank > settings.COIN_RANK_DROP_THRESHOLD:
+                # Find a replacement that is high-ranked and not already tracked
+                replacement = None
+                for sym, _ in ranked:
+                    r = rank_map.get(sym, 9999)
+                    if r <= settings.COIN_RANK_RISE_THRESHOLD and sym not in current_coins and sym not in stablecoin_set:
+                        replacement = sym
+                        break
+
+                if replacement:
+                    to_remove.append(coin)
+                    to_add.append(replacement)
+                    current_coins.discard(coin)
+                    current_coins.add(replacement)  # prevent double-adding
+                    logger.info(
+                        f"[RankCheck] Queue swap: REMOVE {coin} (rank {rank}) -> "
+                        f"ADD {replacement} (rank {rank_map.get(replacement, '?')})"
+                    )
+
+        if to_remove or to_add:
+            self._pending_remove_coins = to_remove
+            self._pending_add_coins = to_add
+            self._list_update_pending = True
+        else:
+            logger.info("[RankCheck] All coins within rank thresholds. No swaps needed.")
+
+        self._last_hourly_rank_check = now
+
+    async def _apply_pending_coin_swap(self) -> None:
+        """
+        Atomically execute queued coin list swaps (v3).
+
+        Called at the start of a 5m cycle when _list_update_pending is True.
+        Removes dropped coins + their data, bootstraps new coins with full
+        OHLCV fetch, then clears the pending lists.
+        """
+        if not self._list_update_pending:
+            return
+
+        removes = list(self._pending_remove_coins)
+        adds = list(self._pending_add_coins)
+
+        logger.info(
+            f"[CoinSwap] Applying: removing {len(removes)} coins, "
+            f"adding {len(adds)} coins"
+        )
+
+        # ── Remove dropped coins ──
+        current_coins = list(coin_selector.coins)
+        for sym in removes:
+            if sym in current_coins:
+                current_coins.remove(sym)
+            data_store.remove_coin(sym)
+            logger.info(f"[CoinSwap] Removed {sym} from watchlist (rank dropped)")
+
+        # ── Add new coins ──
+        for sym in adds:
+            if sym not in current_coins:
+                current_coins.append(sym)
+            data_store.init_coin(sym)
+            logger.info(f"[CoinSwap] Bootstrapping {sym} — fetching OHLCV...")
+            try:
+                for tf, limit in [
+                    (settings.MACRO_TF, settings.COIN_SWAP_OHLCV_LIMIT),
+                    (settings.STRUCTURE_TF, settings.COIN_SWAP_OHLCV_LIMIT),
+                    (settings.SETUP_TF, settings.COIN_SWAP_OHLCV_LIMIT),
+                    (settings.ENTRY_TF, settings.CANDLE_LIMITS[settings.ENTRY_TF]),
+                ]:
+                    df = await fetcher.fetch_ohlcv(sym, tf, limit)
+                    data_store.update_ohlcv(sym, tf, df)
+                    await asyncio.sleep(0.05)
+                logger.info(f"[CoinSwap] {sym} added to watchlist (bootstrapped)")
+            except Exception as e:
+                logger.error(f"[CoinSwap] Failed to bootstrap {sym}: {e}")
+                current_coins.remove(sym)
+                data_store.remove_coin(sym)
+
+        # Update coin_selector with new list
+        coin_selector._coins = current_coins
+        coin_selector._save_to_disk()
+
+        # Reset pending state
+        self._pending_remove_coins = []
+        self._pending_add_coins = []
+        self._list_update_pending = False
+
+        logger.info(f"[CoinSwap] Complete. Now tracking {len(current_coins)} coins.")
 
     async def daily_refresh(self) -> None:
         """

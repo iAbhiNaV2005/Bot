@@ -5,15 +5,17 @@ Implements exact definitions from the strategy spec:
 - Swing High / Swing Low detection (timeframe-specific lookback)
 - Break of Structure (BOS)
 - Change of Character (CHoCH)
-- Order Block (OB) identification (body-based) and invalidation
+- Order Block (OB) identification (body-based, volume-quality) and invalidation
 - Fair Value Gap (FVG) detection and fill-checking
 - Liquidity Sweep detection
 - RSI Divergence detection
 - OB Rejection Confirmation
 - OB Touch Count tracking
+- Equal Highs / Equal Lows liquidity zone detection
 
 v2: Body-based OBs, timeframe-specific swings, liquidity sweeps,
     RSI divergence, OB rejection/touch tracking.
+v3: Volume-quality OB scoring, equal highs/lows zones with sweep invalidation.
 """
 
 from dataclasses import dataclass, field
@@ -122,6 +124,34 @@ class OrderBlock:
     touch_count: int = 0
     currently_inside: bool = False
     confirmed_rejection: bool = False
+    # v3: Volume quality (calculated at detection time, never re-calculated)
+    impulse_volume_ratio: float = 0.0  # impulse avg vol / 20-candle historical SMA
+    volume_quality_score: int = 0       # 1 if ratio >= OB_VOLUME_QUALITY_THRESHOLD
+
+
+@dataclass
+class EqualLevel:
+    """
+    An Equal Highs or Equal Lows liquidity zone (v3).
+
+    Forms when two or more swing highs (or swing lows) cluster within
+    EQUAL_LEVEL_TOLERANCE (0.15%) of each other. These zones represent
+    accumulated stop losses that institutions target.
+
+    Attributes:
+        zone_price: Average price of all swings in the cluster.
+        member_count: Number of swing points in the cluster (2 = double, 3+ = triple).
+        most_recent_candle: Index of the newest member candle.
+        direction: BULLISH = equal highs zone, BEARISH = equal lows zone.
+        swept: True once a liquidity sweep has consumed this zone.
+        swept_candle: Candle index when sweep was detected.
+    """
+    zone_price: float
+    member_count: int
+    most_recent_candle: int
+    direction: Direction
+    swept: bool = False
+    swept_candle: int = -1
 
 
 @dataclass
@@ -402,6 +432,7 @@ def detect_order_blocks(
     closes = df["close"].values
     highs = df["high"].values
     lows = df["low"].values
+    volumes = df["volume"].values if "volume" in df.columns else None
     timestamps = df.index
     atr_vals = atr.values
 
@@ -429,9 +460,14 @@ def detect_order_blocks(
                     total_move = closes[impulse_end] - lows[i]
                     atr_at_point = atr_vals[i] if i < len(atr_vals) else 0
                     if atr_at_point > 0 and total_move >= impulse_multiplier * atr_at_point:
-                        # v2: Body-based OB zone
                         body_top = max(float(opens[i]), float(closes[i]))
                         body_bottom = min(float(opens[i]), float(closes[i]))
+
+                        # v3: Volume quality — calc once at detection
+                        vol_ratio, vol_score = _calc_ob_volume_quality(
+                            volumes, i, impulse_candles
+                        )
+
                         bullish_obs.append(OrderBlock(
                             top=body_top,
                             bottom=body_bottom,
@@ -441,6 +477,8 @@ def detect_order_blocks(
                             candle_index=i,
                             valid=True,
                             timestamp=timestamps[i],
+                            impulse_volume_ratio=vol_ratio,
+                            volume_quality_score=vol_score,
                         ))
 
         # ── Bearish OB: bullish candle followed by bearish impulse ──
@@ -463,6 +501,11 @@ def detect_order_blocks(
                     if atr_at_point > 0 and total_move >= impulse_multiplier * atr_at_point:
                         body_top = max(float(opens[i]), float(closes[i]))
                         body_bottom = min(float(opens[i]), float(closes[i]))
+
+                        vol_ratio, vol_score = _calc_ob_volume_quality(
+                            volumes, i, impulse_candles
+                        )
+
                         bearish_obs.append(OrderBlock(
                             top=body_top,
                             bottom=body_bottom,
@@ -472,6 +515,8 @@ def detect_order_blocks(
                             candle_index=i,
                             valid=True,
                             timestamp=timestamps[i],
+                            impulse_volume_ratio=vol_ratio,
+                            volume_quality_score=vol_score,
                         ))
 
     # Return most recent valid OBs
@@ -1004,4 +1049,276 @@ def run_smc_analysis(
             for ob in results.get(obs_key, []):
                 ob.confirmed_rejection = check_ob_rejection_confirmation(df_15m, ob)
 
+    # ── Equal Highs / Equal Lows (v3: uses already-detected 1H swing points) ──
+    sh_1h_stored = results.get("1h_swing_highs", [])
+    sl_1h_stored = results.get("1h_swing_lows", [])
+    df_1h_for_eq = ohlcv.get(settings.STRUCTURE_TF)
+
+    if df_1h_for_eq is not None and (sh_1h_stored or sl_1h_stored):
+        # Get 1H ATR for proximity check
+        atr_1h_eq = indicators.get("atr", {}).get("1h_series")
+        if atr_1h_eq is None:
+            from analysis.indicators import calc_atr as _calc_atr
+            atr_1h_eq = _calc_atr(
+                df_1h_for_eq["high"], df_1h_for_eq["low"], df_1h_for_eq["close"]
+            )
+
+        sweep_info = results.get("liquidity_sweep", {})
+        current_idx_1h = len(df_1h_for_eq) - 1
+
+        eq_result = detect_equal_levels(
+            swing_highs_1h=sh_1h_stored,
+            swing_lows_1h=sl_1h_stored,
+            df_1h=df_1h_for_eq,
+            atr_1h=atr_1h_eq,
+            sweep_info=sweep_info,
+            current_idx=current_idx_1h,
+        )
+        results["equal_highs"] = eq_result["equal_highs"]
+        results["equal_lows"] = eq_result["equal_lows"]
+    else:
+        results["equal_highs"] = []
+        results["equal_lows"] = []
+
     return results
+
+
+# ─── Volume Quality Helper (v3 — Improvement B) ─────────────────────────────────────
+
+def _calc_ob_volume_quality(
+    volumes,
+    ob_index: int,
+    impulse_candles: int,
+) -> tuple[float, int]:
+    """
+    Calculate volume quality for an Order Block at detection time (v3).
+
+    Compares the average volume of the impulse candles against the
+    historical 20-candle SMA that precedes the impulse.
+
+    This is called ONCE when the OB is first identified. The result is
+    stored in the OB and never re-calculated.
+
+    Args:
+        volumes: numpy array of volume values (or None if not available).
+        ob_index: Candle index of the OB itself (last opposing candle).
+        impulse_candles: Number of consecutive impulse candles.
+
+    Returns:
+        Tuple of (impulse_volume_ratio, volume_quality_score).
+        ratio = impulse_avg / historical_sma
+        score = 1 if ratio >= OB_VOLUME_QUALITY_THRESHOLD else 0
+    """
+    if volumes is None:
+        return 0.0, 0
+
+    # Impulse candles start at ob_index + 1
+    impulse_start = ob_index + 1
+    impulse_end = impulse_start + impulse_candles
+
+    if impulse_end > len(volumes):
+        return 0.0, 0
+
+    # Historical SMA: 20 candles immediately before the OB candle
+    sma_end = ob_index  # exclusive
+    sma_start = max(0, sma_end - settings.OB_VOLUME_SMA_PERIOD)
+
+    if sma_start >= sma_end:
+        return 1.0, 0  # Edge case: not enough history
+
+    historical_vols = volumes[sma_start:sma_end]
+    if len(historical_vols) == 0:
+        return 1.0, 0
+
+    historical_sma = float(historical_vols.mean())
+    if historical_sma <= 0:
+        return 1.0, 0
+
+    impulse_vols = volumes[impulse_start:impulse_end]
+    impulse_avg = float(impulse_vols.mean())
+
+    ratio = impulse_avg / historical_sma
+    score = 1 if ratio >= settings.OB_VOLUME_QUALITY_THRESHOLD else 0
+
+    return round(ratio, 2), score
+
+
+# ─── Equal Highs / Equal Lows (v3 — Improvement A) ───────────────────────────────────
+
+def detect_equal_levels(
+    swing_highs_1h: list[SwingPoint],
+    swing_lows_1h: list[SwingPoint],
+    df_1h: "pd.DataFrame",
+    atr_1h: "pd.Series",
+    sweep_info: dict,
+    current_idx: int,
+) -> dict[str, list[EqualLevel]]:
+    """
+    Detect Equal Highs and Equal Lows liquidity zones (v3).
+
+    Reuses already-detected swing points — does NOT re-detect swings.
+    Groups nearby swing highs (or lows) into clusters. Each valid cluster
+    (2+ members within 0.15% price and 40-candle gap) is a zone.
+
+    Sweep invalidation:
+    - Bullish sweep below an equal lows zone marks it swept.
+    - Bearish sweep above an equal highs zone marks it swept.
+    - Swept zones are retained but score zero points.
+    - Swept zones older than EQUAL_LEVEL_SWEEP_EXPIRE_CANDLES are removed.
+
+    Args:
+        swing_highs_1h: Detected 1H swing highs (from detect_swing_points).
+        swing_lows_1h: Detected 1H swing lows.
+        df_1h: 1H OHLCV DataFrame.
+        atr_1h: 1H ATR Series.
+        sweep_info: Liquidity sweep results from detect_liquidity_sweep.
+        current_idx: Current candle index in df_1h.
+
+    Returns:
+        Dict with 'equal_highs' and 'equal_lows' (lists of EqualLevel).
+    """
+    scan_start = max(0, current_idx - settings.EQUAL_LEVEL_MAX_AGE_CANDLES)
+
+    result: dict[str, list[EqualLevel]] = {
+        "equal_highs": [],
+        "equal_lows": [],
+    }
+
+    # ── Equal Highs ──
+    recent_highs = [
+        sh for sh in swing_highs_1h
+        if scan_start <= sh.index <= current_idx
+    ]
+    eq_highs = _cluster_swing_points(recent_highs)
+    for zone in eq_highs:
+        zone.direction = Direction.BULLISH
+    result["equal_highs"] = eq_highs
+
+    # ── Equal Lows ──
+    recent_lows = [
+        sl for sl in swing_lows_1h
+        if scan_start <= sl.index <= current_idx
+    ]
+    eq_lows = _cluster_swing_points(recent_lows)
+    for zone in eq_lows:
+        zone.direction = Direction.BEARISH
+    result["equal_lows"] = eq_lows
+
+    # ── Sweep Invalidation ──
+    # A bullish sweep (wick below swing low, close above) consumes equal lows
+    # A bearish sweep (wick above swing high, close below) consumes equal highs
+    bullish_swept = sweep_info.get("bullish_sweep", False)
+    bearish_swept = sweep_info.get("bearish_sweep", False)
+
+    # Low watermark from the sweep candle
+    lows_arr = df_1h["low"].values
+    highs_arr = df_1h["high"].values
+    sweep_low = float(lows_arr.min()) if bullish_swept else None
+    sweep_high = float(highs_arr.max()) if bearish_swept else None
+
+    # Approximate sweep candle as the current candle (sweep was recent)
+    sweep_candle_idx = current_idx
+
+    for zone in result["equal_lows"]:
+        if bullish_swept and not zone.swept:
+            # Did the sweep go below this zone?
+            if sweep_low is not None and sweep_low < zone.zone_price:
+                if sweep_candle_idx > zone.most_recent_candle:
+                    zone.swept = True
+                    zone.swept_candle = sweep_candle_idx
+
+    for zone in result["equal_highs"]:
+        if bearish_swept and not zone.swept:
+            if sweep_high is not None and sweep_high > zone.zone_price:
+                if sweep_candle_idx > zone.most_recent_candle:
+                    zone.swept = True
+                    zone.swept_candle = sweep_candle_idx
+
+    # ── Remove expired swept zones ──
+    expire_limit = settings.EQUAL_LEVEL_SWEEP_EXPIRE_CANDLES
+    result["equal_lows"] = [
+        z for z in result["equal_lows"]
+        if not z.swept or (current_idx - z.swept_candle) < expire_limit
+    ]
+    result["equal_highs"] = [
+        z for z in result["equal_highs"]
+        if not z.swept or (current_idx - z.swept_candle) < expire_limit
+    ]
+
+    return result
+
+
+def _cluster_swing_points(
+    swings: list[SwingPoint],
+) -> list[EqualLevel]:
+    """
+    Group swing points into equal-level clusters (helper for detect_equal_levels).
+
+    Algorithm:
+    1. For each pair (A, B) where A != B:
+       - price_diff_pct = abs(A.price - B.price) / A.price
+       - If <= EQUAL_LEVEL_TOLERANCE AND abs(A.index - B.index) <= MAX_AGE_GAP:
+         → cluster A and B together
+    2. Union-find-style grouping: if A~B and B~C then {A,B,C} is one cluster.
+    3. Only clusters with 2+ members become EqualLevel zones.
+
+    Args:
+        swings: List of SwingPoint objects (already filtered to age window).
+
+    Returns:
+        List of EqualLevel zones (direction field set to placeholder BULLISH;
+        caller sets the real direction).
+    """
+    if len(swings) < 2:
+        return []
+
+    tol = settings.EQUAL_LEVEL_TOLERANCE
+    gap = settings.EQUAL_LEVEL_MAX_AGE_GAP_CANDLES
+
+    n = len(swings)
+    # Union-find parent array
+    parent = list(range(n))
+
+    def find(x: int) -> int:
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(x: int, y: int) -> None:
+        px, py = find(x), find(y)
+        if px != py:
+            parent[px] = py
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            a = swings[i]
+            b = swings[j]
+            price_diff_pct = abs(a.price - b.price) / max(a.price, 1e-9)
+            candle_gap = abs(a.index - b.index)
+            if price_diff_pct <= tol and candle_gap <= gap:
+                union(i, j)
+
+    # Collect clusters
+    clusters: dict[int, list[int]] = {}
+    for i in range(n):
+        root = find(i)
+        clusters.setdefault(root, []).append(i)
+
+    zones: list[EqualLevel] = []
+    for members_idx in clusters.values():
+        if len(members_idx) < 2:
+            continue  # Single swings are not equal levels
+
+        members = [swings[i] for i in members_idx]
+        zone_price = sum(m.price for m in members) / len(members)
+        most_recent = max(m.index for m in members)
+
+        zones.append(EqualLevel(
+            zone_price=round(zone_price, 8),
+            member_count=len(members),
+            most_recent_candle=most_recent,
+            direction=Direction.BULLISH,  # placeholder; caller overwrites
+        ))
+
+    return zones
