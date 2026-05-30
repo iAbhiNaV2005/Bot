@@ -1616,3 +1616,383 @@
 [2026-05-30 20:50:16] [INFO] [scheduler.runner] Shutdown complete
 [2026-05-30 20:50:16] [INFO] [__main__] Bot stopped.
 [2026-05-30 20:50:16] [CRITICAL] [__main__] Fatal error: Scheduler is not running
+[2026-05-30 20:51:32] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-30 20:51:32] [INFO] [__main__] ============================================================
+[2026-05-30 20:51:32] [INFO] [__main__]   SMC Momentum Confluence Signal Bot
+[2026-05-30 20:51:32] [INFO] [__main__] ============================================================
+[2026-05-30 20:51:32] [INFO] [__main__]   Exchange: binance (futures)
+[2026-05-30 20:51:32] [INFO] [__main__]   Top coins: 50
+[2026-05-30 20:51:32] [INFO] [__main__]   Timeframes: 4h/1h/15m/5m
+[2026-05-30 20:51:32] [INFO] [__main__]   Min score: 10/37
+[2026-05-30 20:51:32] [INFO] [__main__]   Min R:R: 1.5
+[2026-05-30 20:51:32] [INFO] [__main__]   Dry run: False
+[2026-05-30 20:51:32] [INFO] [__main__] ============================================================
+[2026-05-30 20:51:32] [INFO] [scheduler.runner] ============================================================
+[2026-05-30 20:51:32] [INFO] [scheduler.runner] Bot starting up...
+[2026-05-30 20:51:32] [INFO] [scheduler.runner] ============================================================
+[2026-05-30 20:51:32] [INFO] [data.coin_selector] Loaded 50 coins from disk (last refresh: 1780108752.8184438)
+[2026-05-30 20:51:32] [INFO] [data.storage] Added UB/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added LAB/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added BSB/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added INJ/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ZEC/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added GENIUS/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added BTC/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added SOL/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ADA/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added AIGENSYN/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added NEAR/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added PAXG/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added BILL/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added XLM/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added SUI/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ENA/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added UNI/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ALLO/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added AAVE/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added IO/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added LIT/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added XRP/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added DOT/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ESPORTS/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ETH/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added HYPE/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added PUMP/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ALGO/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added BEAT/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added TAO/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added FET/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added XMR/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added BCH/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added AVAX/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added BNB/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ID/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added GUA/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added HEI/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added TRX/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added TON/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added 1000PEPE/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added WLD/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added OPG/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added HBAR/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added ONDO/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added TRUMP/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added LINK/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added XPL/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added FIL/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [data.storage] Added DOGE/USDT:USDT to data store
+[2026-05-30 20:51:32] [INFO] [scheduler.runner] Tracking 50 coins
+[2026-05-30 20:51:32] [INFO] [scheduler.runner] Fetching 4h candles for 50 coins...
+[2026-05-30 20:51:53] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-30 20:51:53] [INFO] [scheduler.runner] Fetching 1h candles for 50 coins...
+[2026-05-30 20:52:15] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-30 20:52:15] [INFO] [scheduler.runner] Fetching 15m candles for 50 coins...
+[2026-05-30 20:52:37] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 20:52:37] [INFO] [scheduler.runner] Fetching 5m candles for 50 coins...
+[2026-05-30 20:52:58] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 20:52:58] [INFO] [scheduler.runner] Initial OHLCV fetch complete
+[2026-05-30 20:52:59] [INFO] [delivery.telegram_bot] Telegram text message sent successfully
+[2026-05-30 20:52:59] [INFO] [scheduler.runner] Startup complete. Entering main loop.
+[2026-05-30 20:52:59] [INFO] [__main__] Scheduler started. Bot is now running.
+[2026-05-30 20:53:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 20:54:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 20:54:43] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 20:55:05] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-30 20:55:26] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [RankCheck] Queue swap: REMOVE AIGENSYN/USDT:USDT (rank 86) -> ADD CL/USDT:USDT (rank 13)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [RankCheck] Queue swap: REMOVE PAXG/USDT:USDT (rank 74) -> ADD XAU/USDT:USDT (rank 15)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [RankCheck] Queue swap: REMOVE AAVE/USDT:USDT (rank 67) -> ADD MU/USDT:USDT (rank 17)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [RankCheck] Queue swap: REMOVE IO/USDT:USDT (rank 72) -> ADD XAG/USDT:USDT (rank 24)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [RankCheck] Queue swap: REMOVE ESPORTS/USDT:USDT (rank 70) -> ADD PORTAL/USDT:USDT (rank 27)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [CoinSwap] Applying: removing 5 coins, adding 5 coins
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [CoinSwap] Removed AIGENSYN/USDT:USDT from watchlist (rank dropped)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [CoinSwap] Removed PAXG/USDT:USDT from watchlist (rank dropped)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [CoinSwap] Removed AAVE/USDT:USDT from watchlist (rank dropped)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [CoinSwap] Removed IO/USDT:USDT from watchlist (rank dropped)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [CoinSwap] Removed ESPORTS/USDT:USDT from watchlist (rank dropped)
+[2026-05-30 20:55:27] [INFO] [scheduler.runner] [CoinSwap] Bootstrapping CL/USDT:USDT — fetching OHLCV...
+[2026-05-30 20:55:30] [INFO] [scheduler.runner] [CoinSwap] CL/USDT:USDT added to watchlist (bootstrapped)
+[2026-05-30 20:55:30] [INFO] [scheduler.runner] [CoinSwap] Bootstrapping XAU/USDT:USDT — fetching OHLCV...
+[2026-05-30 20:55:31] [INFO] [scheduler.runner] [CoinSwap] XAU/USDT:USDT added to watchlist (bootstrapped)
+[2026-05-30 20:55:31] [INFO] [scheduler.runner] [CoinSwap] Bootstrapping MU/USDT:USDT — fetching OHLCV...
+[2026-05-30 20:55:33] [INFO] [scheduler.runner] [CoinSwap] MU/USDT:USDT added to watchlist (bootstrapped)
+[2026-05-30 20:55:33] [INFO] [scheduler.runner] [CoinSwap] Bootstrapping XAG/USDT:USDT — fetching OHLCV...
+[2026-05-30 20:55:35] [INFO] [scheduler.runner] [CoinSwap] XAG/USDT:USDT added to watchlist (bootstrapped)
+[2026-05-30 20:55:35] [INFO] [scheduler.runner] [CoinSwap] Bootstrapping PORTAL/USDT:USDT — fetching OHLCV...
+[2026-05-30 20:55:36] [INFO] [scheduler.runner] [CoinSwap] PORTAL/USDT:USDT added to watchlist (bootstrapped)
+[2026-05-30 20:55:36] [INFO] [scheduler.runner] [CoinSwap] Complete. Now tracking 50 coins.
+[2026-05-30 20:56:24] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 20:56:24] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 20:56:24] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 20:56:24] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 20:56:24] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 20:56:24] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 20:56:24] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(9), 4H EMA data missing(1)
+[2026-05-30 20:56:24] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 20:56:24] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 20:56:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 20:57:18] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 20:58:07] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 20:58:07] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 20:58:07] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 20:58:07] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 20:58:07] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 20:58:07] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 20:58:07] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(9), 4H EMA data missing(1)
+[2026-05-30 20:58:07] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 20:58:07] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:00:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:01:19] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:01:39] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 21:02:29] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 21:02:29] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:02:29] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:02:29] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:02:29] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:02:29] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:02:29] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(9), 4H EMA data missing(1)
+[2026-05-30 21:02:29] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:02:29] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:05:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:06:20] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:07:12] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 21:07:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:07:12] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:07:12] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:07:12] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:07:12] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:07:12] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(9), 4H EMA data missing(1)
+[2026-05-30 21:07:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:07:12] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:10:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:11:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:12:12] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 21:12:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:12:12] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:12:12] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:12:12] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:12:12] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:12:12] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(9), 4H EMA data missing(1)
+[2026-05-30 21:12:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:12:12] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:15:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:16:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:16:42] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 21:17:33] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 21:17:33] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:17:33] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:17:33] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:17:33] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:17:33] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:17:33] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(8), RSI out of range(1), 4H EMA data missing(1)
+[2026-05-30 21:17:33] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:17:33] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:20:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:21:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:22:11] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 21:22:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:22:12] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:22:12] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:22:12] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:22:12] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:22:12] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(9), 4H EMA data missing(1)
+[2026-05-30 21:22:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:22:12] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:25:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:26:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:27:11] [WARNING] [analysis.indicators] 4H data has only 140 candles (need 200)
+[2026-05-30 21:27:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:27:12] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:27:12] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:27:12] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:27:12] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:27:12] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(20), No BOS(10), 4H EMA trend(10), Not in OB(9), 4H EMA data missing(1)
+[2026-05-30 21:27:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:27:12] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:30:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:31:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:31:41] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 21:32:02] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-30 21:32:22] [INFO] [data.fetcher] Fetched 4h OHLCV: 50/50 symbols
+[2026-05-30 21:33:13] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 21:33:13] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:33:13] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:33:13] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:33:13] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:33:13] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:33:13] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 21:33:13] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:33:13] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:35:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:36:19] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:37:10] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 21:37:10] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:37:10] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:37:10] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:37:10] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:37:10] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:37:10] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 21:37:10] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:37:10] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:40:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:41:22] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:42:12] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 21:42:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:42:12] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:42:12] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:42:12] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:42:12] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:42:12] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 21:42:12] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:42:12] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:45:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:46:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:46:42] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 21:47:33] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 21:47:33] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:47:33] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:47:33] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:47:33] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:47:33] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:47:33] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 21:47:33] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:47:33] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:50:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:51:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:52:11] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 21:52:11] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:52:11] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:52:11] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:52:11] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:52:11] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:52:11] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 21:52:11] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:52:11] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 21:55:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 21:56:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 21:56:22] [INFO] [scheduler.runner] [RankCheck] Queue swap: REMOVE XPL/USDT:USDT (rank 66) -> ADD NFP/USDT:USDT (rank 26)
+[2026-05-30 21:56:22] [INFO] [scheduler.runner] [CoinSwap] Applying: removing 1 coins, adding 1 coins
+[2026-05-30 21:56:22] [INFO] [scheduler.runner] [CoinSwap] Removed XPL/USDT:USDT from watchlist (rank dropped)
+[2026-05-30 21:56:22] [INFO] [scheduler.runner] [CoinSwap] Bootstrapping NFP/USDT:USDT — fetching OHLCV...
+[2026-05-30 21:56:25] [INFO] [scheduler.runner] [CoinSwap] NFP/USDT:USDT added to watchlist (bootstrapped)
+[2026-05-30 21:56:25] [INFO] [scheduler.runner] [CoinSwap] Complete. Now tracking 50 coins.
+[2026-05-30 21:57:13] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 21:57:13] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:57:13] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 21:57:13] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 21:57:13] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 21:57:13] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 21:57:13] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 21:57:13] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 21:57:13] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 22:00:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:01:19] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:01:40] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 22:02:30] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:02:31] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:02:31] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:02:31] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 22:02:31] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:02:31] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:02:31] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:02:31] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:02:31] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 22:05:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:06:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:07:10] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:07:10] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:07:10] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:07:10] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 22:07:10] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:07:10] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:07:10] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:07:10] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:07:10] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 22:10:41] [INFO] [database.signal_log] Signal logger initialized at D:\Projects\crypto_signal_bot\database\signals.db
+[2026-05-30 22:10:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:11:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:12:11] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:12:11] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:12:11] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:12:11] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 22:12:11] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:12:11] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:12:11] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:12:11] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:12:11] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 22:15:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:16:22] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:16:44] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 22:17:34] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:17:34] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:17:34] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:17:34] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 22:17:34] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:17:34] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:17:34] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:17:34] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:17:34] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 22:20:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:21:22] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:22:15] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:22:15] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:22:15] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:22:15] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 22:22:15] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:22:15] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:22:15] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:22:15] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:22:15] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 22:25:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:26:22] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:27:14] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:27:14] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:27:14] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:27:14] [INFO] [scheduler.runner] Session: Overlap (+3)  |  BTC: Bullish
+[2026-05-30 22:27:14] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:27:14] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:27:14] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:27:14] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:27:14] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: Overlap. Next check in 60s.
+[2026-05-30 22:30:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:31:21] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:31:44] [INFO] [data.fetcher] Fetched 15m OHLCV: 50/50 symbols
+[2026-05-30 22:32:07] [INFO] [data.fetcher] Fetched 1h OHLCV: 50/50 symbols
+[2026-05-30 22:32:59] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:32:59] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:32:59] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:32:59] [INFO] [scheduler.runner] Session: NY (+1)  |  BTC: Bullish
+[2026-05-30 22:32:59] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:32:59] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:32:59] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:32:59] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:32:59] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: NY. Next check in 60s.
+[2026-05-30 22:35:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:36:22] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:37:15] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:37:15] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:37:15] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:37:15] [INFO] [scheduler.runner] Session: NY (+1)  |  BTC: Bullish
+[2026-05-30 22:37:15] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:37:15] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:37:15] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:37:15] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:37:15] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: NY. Next check in 60s.
+[2026-05-30 22:40:59] [INFO] [scheduler.runner] New 5m candle closed. Running analysis cycle...
+[2026-05-30 22:41:23] [INFO] [data.fetcher] Fetched 5m OHLCV: 50/50 symbols
+[2026-05-30 22:52:15] [WARNING] [data.fetcher] Failed to fetch OI history for PUMP/USDT:USDT: binance GET https://fapi.binance.com/futures/data/openInterestHist?symbol=PUMPUSDT&period=5m&limit=30
+[2026-05-30 22:52:31] [WARNING] [analysis.indicators] 4H data has only 141 candles (need 200)
+[2026-05-30 22:52:31] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:52:31] [INFO] [scheduler.runner] CYCLE SUMMARY  |  REJECTED: 50
+[2026-05-30 22:52:31] [INFO] [scheduler.runner] Session: NY (+1)  |  BTC: Bullish
+[2026-05-30 22:52:31] [INFO] [scheduler.runner] ----------------------------------------------------------------------
+[2026-05-30 22:52:31] [INFO] [scheduler.runner]   No coins scored above 0 this cycle
+[2026-05-30 22:52:31] [INFO] [scheduler.runner] REJECTIONS (50): ADX < 20 (ranging)(21), No BOS(12), 4H EMA trend(9), Not in OB(7), 4H EMA data missing(1)
+[2026-05-30 22:52:31] [INFO] [scheduler.runner] ======================================================================
+[2026-05-30 22:52:31] [INFO] [scheduler.runner] Cycle complete. Signals sent: 0. Session: NY. Next check in 60s.
+[2026-05-30 22:52:41] [INFO] [__main__] Received signal 2. Initiating shutdown...
+[2026-05-30 22:53:18] [INFO] [__main__] Received signal 2. Initiating shutdown...
+[2026-05-30 22:53:18] [INFO] [scheduler.runner] Shutting down...
+[2026-05-30 22:53:18] [INFO] [scheduler.runner] Shutdown complete
+[2026-05-30 22:53:18] [INFO] [__main__] Bot stopped.
+[2026-05-30 22:53:19] [CRITICAL] [__main__] Fatal error: Scheduler is not running
